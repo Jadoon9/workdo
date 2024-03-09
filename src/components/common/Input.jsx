@@ -1,5 +1,4 @@
 /* eslint-disable react/prop-types */
-
 import Button from "./Button";
 
 const Input = ({
@@ -19,7 +18,7 @@ const Input = ({
       {label && (
         <label
           htmlFor=""
-          className="body-medium uppercase mb-6 font-[500] text-primary-200 my-8"
+          className="body-medium uppercase mb-4 md:mb-6 font-[500] text-primary-200 my-8 md:my-4"
         >
           {label}
         </label>
