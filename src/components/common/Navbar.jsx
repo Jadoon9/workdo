@@ -7,12 +7,12 @@ const navitems = [
   {
     id: 2,
     name: "Experiences",
-    link: "/eperiences",
+    link: "/experiences",
   },
   {
     id: 3,
     name: "How it works",
-    link: "/hiw",
+    link: "/how-it-works",
   },
   {
     id: 4,
@@ -23,12 +23,12 @@ const navitems = [
 
 const Navbar = () => {
   return (
-    <>
-      <nav className="flex-between paddingX my-8">
-        <Link to="/">
-          <img src={logo} alt="Logo" className="" />
-        </Link>
-        <div className="flex-between gap-x-20">
+    <nav className="flex flex-wrap items-center justify-between px-4 py-2 mb-10  md:py-4 md:px-8">
+      <Link to="/">
+        <img src={logo} alt="Logo" className="w-24 md:w-auto object-cover" />
+      </Link>
+      <div className="flex items-center gap-x-8">
+        <div className="hidden md:flex gap-x-8">
           {navitems.map((item) => (
             <Link to={item.link} key={item.id}>
               <p className="body-regular font-light cursor-pointer hover:opacity-95 hover:scale-105">
@@ -36,16 +36,16 @@ const Navbar = () => {
               </p>
             </Link>
           ))}
-          <Button
-            text="LOG IN"
-            bgColor="bg-primary-200"
-            textColor="text-white"
-            paddingX="6"
-            paddingY="2"
-          />
         </div>
-      </nav>
-    </>
+        <Button
+          text="LOG IN"
+          bgColor="bg-primary-200"
+          textColor="text-white"
+          paddingX="6"
+          paddingY="2"
+        />
+      </div>
+    </nav>
   );
 };
 

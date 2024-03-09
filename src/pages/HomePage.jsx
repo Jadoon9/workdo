@@ -1,3 +1,9 @@
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Pagination } from "swiper/modules";
+
+import "swiper/css";
+import "swiper/css/pagination";
+import { useNavigate } from "react-router-dom";
 import hero from "../assets/landingpage/hero.svg";
 import Button from "../components/common/Button";
 import workplace from "../assets/landingpage/workplace.svg";
@@ -18,24 +24,17 @@ import facebook from "../assets/landingpage/fb.svg";
 import faq from "../assets/landingpage/faq.svg";
 import minutes from "../assets/landingpage/minutes.svg";
 
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Pagination } from "swiper/modules";
-
-// Import Swiper styles
-import "swiper/css";
-import "swiper/css/pagination";
-import { useNavigate } from "react-router-dom";
-
 const HomePage = () => {
   const navigate = useNavigate();
+
   return (
-    <div className="">
-      <section className=" paddingX grid grid-cols-2 my-10 items-center">
-        <div className="gap-y-2 my-28">
+    <div className="mb-8">
+      <section className="paddingX grid grid-cols-1 lg:grid-cols-2 my-10 items-center">
+        <div className="gap-y-2 my-28 text-center lg:text-left">
           <h1 className="h1-bold font-[800] text-primary-200">
             Work events <br /> done right.
           </h1>
-          <div className="flex gap-3 my-6 ">
+          <div className="flex flex-col lg:flex-row gap-3 my-6 ">
             <Button
               text="SUBMIT EVENT DETAILS"
               bgColor="bg-primary-200"
@@ -52,7 +51,7 @@ const HomePage = () => {
               onClick={() => navigate("/browse-events")}
             />
           </div>
-          <div className="w-5/6">
+          <div className="w-full lg:w-5/6">
             <Button
               text="LIST YOUR BUSINESS"
               textColor="primary-200"
@@ -72,7 +71,7 @@ const HomePage = () => {
         </h2>
       </div>
 
-      <section className="paddingX grid grid-cols-2 gap-4 my-14">
+      <section className="paddingX grid grid-cols-1 lg:grid-cols-2 gap-4 my-14">
         <div className="relative">
           <Swiper
             pagination={{
@@ -107,7 +106,7 @@ const HomePage = () => {
         </div>
       </section>
 
-      <div className="paddingX w-1/2 my-2">
+      <div className="paddingX w-full lg:w-1/2 my-2">
         <h2 className="h2 text-primary-200">
           Ideas to <br /> get started
         </h2>
@@ -118,7 +117,7 @@ const HomePage = () => {
           ultrices auctor.
         </p>
       </div>
-      <section className="paddingX grid grid-cols-3 gap-8 my-14">
+      <section className="paddingX grid grid-cols-1 lg:grid-cols-3 gap-8 my-14">
         {[...Array(3)].map((item, index) => (
           <div key={index}>
             <img src={about} alt="" className="rounded-[16px] w-full" />
@@ -149,12 +148,12 @@ const HomePage = () => {
         ))}
       </section>
 
-      <div className="paddingX w-1/2 my-12">
+      <div className="paddingX w-full lg:w-1/2 my-12">
         <h2 className="h2 text-primary-200 neue800 ">
-          At work do <br /> we believe
+          At workdo <br /> we believe
         </h2>
       </div>
-      <section className="paddingX grid grid-cols-3 gap-8 my-14">
+      <section className="paddingX grid grid-cols-1 lg:grid-cols-3 gap-8 my-14">
         {[...Array(3)].map((item, index) => (
           <div key={index}>
             <img src={users2} alt="" />
@@ -170,18 +169,25 @@ const HomePage = () => {
         ))}
       </section>
 
-      <section className="paddingX w-1/2 my-10">
+      <section className="paddingX w-full my-10">
         <h2 className="h2 text-primary-200">
           Why collab
           <br /> with Us
         </h2>
       </section>
 
-      <section className="grid grid-cols-12 gap-x-10">
-        <div className="col-span-7 bg-primary-100 paddingX py-12 h-[600px]">
+      <section className="grid grid-cols-1 lg:grid-cols-12 gap-x-10">
+        <div className="col-span-1 lg:col-span-7 bg-primary-100 paddingX py-12 lg:h-[600px]">
           {[...Array(3)].map((item, index) => (
-            <div className="flex gap-8 space-y-10" key={index}>
-              <img src={starIcon} alt="star" />
+            <div
+              className="flex flex-col lg:flex-row gap-8 lg:space-y-10 lg:items-center"
+              key={index}
+            >
+              <img
+                src={starIcon}
+                alt="star"
+                className="w-12 h-12 lg:w-auto lg:h-auto"
+              />
               <p className="body-regular text-secondary-200">
                 Lorem ipsum dolor sit amet consectetur. Etiam et cras sit
                 quisque tortor. Eget in vel mattis quis ultricies libero
@@ -190,7 +196,7 @@ const HomePage = () => {
               </p>
             </div>
           ))}
-          <div className="ml-16 mt-16">
+          <div className="ml-0 lg:ml-16 mt-16">
             <Button
               text="List your business"
               width="full"
@@ -199,7 +205,7 @@ const HomePage = () => {
             />
           </div>
         </div>
-        <div className="col-span-5 pr-10 h-[600px]">
+        <div className="col-span-1 lg:col-span-5 pr-10 lg:h-[600px]">
           <img
             src={foodImage}
             alt="foodImage"
@@ -208,8 +214,8 @@ const HomePage = () => {
         </div>
       </section>
 
-      <section className="flex justify-between items-center paddingX space-x-32 w-full my-16">
-        <div className=" my-10 w-1/3 text-primary-200">
+      <section className="flex flex-col lg:flex-row justify-between items-center paddingX lg:space-x-32 w-full my-16">
+        <div className="my-10 w-full lg:w-auto lg:text-left text-center text-primary-200">
           <h2 className="h2-57 text-primary-200 ">
             Sign up to our
             <br /> <span className="">newsletter</span> <br />
@@ -217,7 +223,7 @@ const HomePage = () => {
           </h2>
         </div>
 
-        <div className="w-2/3">
+        <div className="w-full ">
           <div className="flex flex-col gap-8 ">
             <Input
               type="text"
@@ -233,35 +239,43 @@ const HomePage = () => {
       </section>
 
       <section className="bg-primary-100">
-        <div className="paddingX flex gap-96 justify-between ">
-          <h2 className="h2 text-secondary-200 py-8">
+        <div className="paddingX flex flex-col lg:flex-row  ">
+          <h2 className="h2 text-secondary-200 text-center lg:text-start py-8 w-full lg:w-1/2">
             Follow US On <br />
             social media
           </h2>
-          <div className="flex items-center flex-1 gap-16">
-            <img src={InstaIcon} alt="InstaIcon" />
-            <img src={facebook} alt="facebook" />
+          <div className="flex items-center justify-center flex-row w-full ">
+            <img
+              src={InstaIcon}
+              alt="InstaIcon"
+              className="mr-2 lg:mr-4 mb-2 lg:mb-0"
+            />
+            <img
+              src={facebook}
+              alt="facebook"
+              className="mr-2 lg:mr-4 mb-2 lg:mb-0"
+            />
             <img src={linkedIn} alt="linkedIn" />
           </div>
         </div>
       </section>
 
-      <section className="paddingX my-12">
-        <h2 className=" text-primary-200 h2 uppercase  pt-10 pb-2">
+      <section className="paddingX lg:p-8 my-12">
+        <h2 className="text-primary-200 h2 uppercase pt-10 pb-2">
           Frequently asked <br />
           questions
         </h2>
-        <p className="w-1/2 text-start">
+        <p className="w-full lg:w-1/2 text-start">
           Lorem ipsum dolor sit amet consectetur. Etiam et cras sit quisque
           tortor. Eget in vel mattis quis ultricies libero pharetra. Porta
           tristique nunc viverra vitae cursus massa. Eget at amet tristique
           ultrices auctor.
         </p>
 
-        <div className="flex my-12 gap-4 ">
+        <div className="flex flex-col lg:flex-row my-12 gap-4">
           {[...Array(3)].map((item, index) => (
             <div
-              className="bg-white rounded-[18px] border-4 border-primary-100 px-4 py-8"
+              className="bg-white rounded-[18px] border-4 border-primary-100 p-4 lg:p-8"
               key={index}
             >
               <img src={faq} alt="" className="my-4" />
@@ -288,16 +302,15 @@ const HomePage = () => {
         </p>
       </section>
 
-      <section className="paddingX  p-8 w-full">
-        <div className="flex justify-center gap-8 w-full">
+      <section className="paddingX lg:p-8 w-full">
+        <div className="flex flex-col lg:flex-row gap-8 w-full lg:items-start">
           {[...Array(3)].map((item, index) => (
-            <div key={index}>
+            <div key={index} className="w-full lg:w-1/3">
               <img src={minutes} alt="" className="w-full" />
-
               <h5 className="body-18 text-gray-50 mt-8">
                 19 OCT 2022 | BY JOHN DOE |
               </h5>
-              <p className="body-regular w-[60%] capitalize mt-4">
+              <p className="body-regular lg:w-[60%] capitalize mt-4">
                 Designers are meant to be loved, not to be understood.
               </p>
             </div>

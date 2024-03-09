@@ -11,11 +11,11 @@ const Button = ({
   return (
     <button
       onClick={onClick}
-      className={`px-6 py-2 border-2 body-regular ${
+      className={`px-6 py-2 border-2 ${
         borderWhite ? "border-secondary-200" : "border-primary-200"
-      } uppercase  ${bgColor} w-${width} hover:opacity-85 font-bold ${
+      } uppercase ${bgColor} ${width} hover:opacity-85 font-bold ${
         !smallText ? "body-regular" : "body-small"
-      } hover:scale-105 ${textColor} rounded-[45px]`}
+      } hover:scale-105 ${textColor} rounded-[45px] sm:w-auto`}
     >
       <>{text}</>
     </button>

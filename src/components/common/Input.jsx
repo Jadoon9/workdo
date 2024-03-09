@@ -19,7 +19,7 @@ const Input = ({
       {label && (
         <label
           htmlFor=""
-          className="body-medium uppercase mb-6 font-[500] text-primary-200 my-8 "
+          className="body-medium uppercase mb-6 font-[500] text-primary-200 my-8"
         >
           {label}
         </label>
@@ -30,7 +30,7 @@ const Input = ({
         onChange={handleInputChange}
         className={`w-full px-12 py-3 ${
           borderWhite ? "bg-white " : "bg-secondary-200"
-        }  border-2 rounded-[60px] outline-none border-primary-200  hover:opacity-85`}
+        } border-2 rounded-[60px] outline-none border-primary-200 hover:opacity-85`}
         style={{ "::placeholder": { color: "#0C190E" } }}
       />
       {renderButton && (
