@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import logo from "../../assets/landingpage/logo.svg";
 import Button from "./Button";
 
@@ -24,15 +25,16 @@ const Navbar = () => {
   return (
     <>
       <nav className="flex-between paddingX my-8">
-        <img src={logo} alt="Logo" className="" />
+        <Link to="/">
+          <img src={logo} alt="Logo" className="" />
+        </Link>
         <div className="flex-between gap-x-20">
           {navitems.map((item) => (
-            <p
-              className="body-regular font-light cursor-pointer hover:opacity-95 hover:scale-105"
-              key={item.id}
-            >
-              {item.name}
-            </p>
+            <Link to={item.link} key={item.id}>
+              <p className="body-regular font-light cursor-pointer hover:opacity-95 hover:scale-105">
+                {item.name}
+              </p>
+            </Link>
           ))}
           <Button
             text="LOG IN"

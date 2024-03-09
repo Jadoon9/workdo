@@ -109,6 +109,7 @@ a {
   .flex-between {
     @apply flex justify-between items-center;
   }
+
   .flex-between-start {
     @apply flex justify-between items-start;
   }

@@ -11,7 +11,7 @@ const Button = ({
   return (
     <button
       onClick={onClick}
-      className={`px-6 py-2 border-2 ${
+      className={`px-6 py-2 border-2 body-regular ${
         borderWhite ? "border-secondary-200" : "border-primary-200"
       } uppercase  ${bgColor} w-${width} hover:opacity-85 font-bold ${
         !smallText ? "body-regular" : "body-small"

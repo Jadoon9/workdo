@@ -49,6 +49,7 @@ const HomePage = () => {
               textColor="primary-200"
               paddingX="6"
               paddingY="2"
+              onClick={() => navigate("/browse-events")}
             />
           </div>
           <div className="w-5/6">
@@ -122,7 +123,7 @@ const HomePage = () => {
           <div key={index}>
             <img src={about} alt="" className="rounded-[16px] w-full" />
             <div className="flex items-center gap-x-4 mt-6">
-              <h2 className="h5 uppercase text-primary-200 neue700">Name</h2>
+              <h2 className="h6 uppercase text-primary-200 neue700">Name</h2>
               <img src={checkIcon} alt="check" />
             </div>
             <div className="flex items-center gap-6 mt-4">
