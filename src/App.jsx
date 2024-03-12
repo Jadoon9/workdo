@@ -7,6 +7,7 @@ import SubmitEvent from "./pages/SubmitEvent";
 import BrowseEvents from "./pages/BrowseEvents";
 import Faq from "./pages/Faq";
 import MinuteDetails from "./pages/MinuteDetails";
+import ShopNow from "./pages/ShopNow";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Route path="/browse-events" element={<BrowseEvents />} />
         <Route path="/faq" element={<Faq />} />
         <Route path="/minutes-details" element={<MinuteDetails />} />
+        <Route path="/shop-now" element={<ShopNow />} />
       </Route>
       <Route path="/login" element={<Login />} />
       <Route path="/sign-up" element={<SignUp />} />
