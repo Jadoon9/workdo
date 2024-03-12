@@ -5,6 +5,7 @@ import insta from "../../assets/landingpage/insta.svg";
 import fb from "../../assets/landingpage/fb.svg";
 import linkedin from "../../assets/landingpage/linkedin.svg";
 import inbox from "../../assets/landingpage/inbox.svg";
+import { Link, useNavigate } from "react-router-dom";
 
 const links = [
   "Home",
@@ -16,6 +17,7 @@ const links = [
 ];
 
 const Footer = () => {
+  const navigate = useNavigate();
   return (
     <footer className="bg-primary-200 px-10 py-16">
       <div className="grid grid-cols-5 gap-4">
@@ -30,9 +32,13 @@ const Footer = () => {
           <h2 className="text-white text-bold h7">LINKS</h2>
 
           {links.map((item, index) => (
-            <p key={index} className="body-regular text-secondary-200">
+            <Link
+              to={item === "FAQs" ? "/faq" : ""}
+              key={index}
+              className="body-regular text-secondary-200"
+            >
               {item}
-            </p>
+            </Link>
           ))}
         </div>
         <div className="col-span-2 flex gap-6 flex-col ">

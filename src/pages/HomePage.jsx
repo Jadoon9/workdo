@@ -275,7 +275,7 @@ const HomePage = () => {
         <div className="flex flex-col lg:flex-row my-12 gap-4">
           {[...Array(3)].map((item, index) => (
             <div
-              className="bg-white rounded-[18px] border-4 border-primary-100 p-4 lg:p-8"
+              className="bg-white rounded-[18px] border-4 border-primary-200 p-4 lg:p-8"
               key={index}
             >
               <img src={faq} alt="" className="my-4" />

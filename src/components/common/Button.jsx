@@ -15,7 +15,7 @@ const Button = ({
         borderWhite ? "border-secondary-200" : "border-primary-200"
       } uppercase ${bgColor} ${width} hover:opacity-85 font-bold ${
         !smallText ? "body-regular" : "body-small"
-      } hover:scale-105 ${textColor} rounded-[45px] sm:w-auto`}
+      } hover:scale-105 ${textColor} rounded-[45px]`}
     >
       <>{text}</>
     </button>
