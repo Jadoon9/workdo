@@ -21,7 +21,7 @@ const MinuteDetails = () => {
           August 19, 2022
         </p>
         <div className="flex flex-col lg:flex-row gap-4 lg:gap-12">
-          <div className="my-4 w-full lg:w-auto">
+          <div className="my-4 w-full lg:w-1/2">
             <Button
               text="Share"
               bgColor="bg-primary-200"

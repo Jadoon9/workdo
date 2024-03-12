@@ -10,7 +10,6 @@ import user from "../assets/shop/user.svg";
 import web from "../assets/shop/web.svg";
 import check from "../assets/shop/check.svg";
 import map from "../assets/shop/map.svg";
-
 import ratings from "../assets/landingpage/Rating.svg";
 import workplace from "../assets/landingpage/workplace.svg";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -20,13 +19,13 @@ import "swiper/css/pagination";
 
 const ShopNow = () => {
   return (
-    <div className=" my-16">
-      <div className=" w-full">
-        <div className="p-[20px] lg:paddingX flex-between  w-1/2">
-          <h2 className="text-6xl lg:h1-bold ">Shop name</h2>
+    <div className="my-16">
+      <div className="w-full">
+        <div className="p-[20px] lg:paddingX  w-1/2 flex justify-between items-center">
+          <h2 className="text-4xl lg:text-6xl">Shop name</h2>
           <img src={checkIcon} alt="" className="w-12" />
         </div>
-        <p className="p-[20px] lg:paddingX body-regular lg:w-1/2 my-5 capitalize text-sm lg:text-base">
+        <p className="p-[20px] lg:paddingX body-regular lg:w-[60%] my-5 capitalize text-sm lg:text-base">
           Lorem ipsum dolor sit amet consectetur. Tellus sit morbi tincidunt
           purus mi. Id pharetra adipiscing laoreet viverra. Viverra egestas
           viverra convallis at dui amet iaculis quisque amet. Ut molestie est
@@ -34,59 +33,60 @@ const ShopNow = () => {
           Quis pellentesque ut faucibus aliquam eget urna arcu.
         </p>
 
-        <div className="p-[20px] lg:paddingX flex w-1/2 flex-col justify-between lg:flex-row gap-4 lg:gap-12">
+        <div className="p-[20px] lg:paddingX flex w-full justify-center lg:justify-start">
           <Button
             text="Book Now"
             bgColor="bg-primary-200"
             textColor="text-white"
             paddingX="4"
             paddingY="2"
-            width="w-full"
+            width="w-[40%]"
           />
         </div>
+
         <div className="p-[20px] lg:paddingX w-full my-8">
           <img src={shopBanner} alt="" className="w-full bg-contain" />
         </div>
 
-        <div className="p-[20px] lg:paddingX flex-between">
+        <div className="p-[20px] lg:paddingX flex justify-between items-center">
           <div className="flex gap-3">
-            <img src={shop1} alt="" />
-            <img src={shop2} alt="" />
-            <img src={shop3} alt="" />
+            <img src={shop1} alt="" className="w-24 lg:w-32" />
+            <img src={shop2} alt="" className="w-24 lg:w-32" />
+            <img src={shop3} alt="" className="w-24 lg:w-32" />
           </div>
-          <div className="flex-between w-1/3">
+          <div className="flex justify-between w-[40%] lg:w-1/3">
             <div className="flex flex-col items-center">
-              <h2 className="h2">45 $</h2>
+              <h2 className="text-2xl lg:h2">$45</h2>
               <p className="body-regular">Per person</p>
             </div>
             <div className="flex flex-col items-center">
-              <h2 className="h2">100 $</h2>
+              <h2 className="text-2xl lg:h2">$100</h2>
               <p className="body-regular">For 3 person</p>
             </div>
           </div>
         </div>
 
-        <div className="p-[20px] lg:paddingX flex justify-between my-20 items-center w-[60%]">
+        <div className="p-[20px] lg:paddingX flex justify-between my-20 items-center w-full lg:w-[60%]">
           <div className="flex items-center gap-3">
-            <img src={location} alt="" />
+            <img src={location} alt="" className="w-6" />
             <p className="body-medium">Theme Park, London</p>
           </div>
           <div className="flex items-center gap-3">
-            <img src={time} alt="" />
+            <img src={time} alt="" className="w-6" />
             <p className="body-medium">1 Month</p>
           </div>
           <div className="flex items-center gap-3">
-            <img src={user} alt="" />
+            <img src={user} alt="" className="w-6" />
             <p className="body-medium">min 4 & max 10</p>
           </div>
           <div className="flex items-center gap-3">
-            <img src={web} alt="" />
+            <img src={web} alt="" className="w-6" />
             <p className="body-medium">Title.com</p>
           </div>
         </div>
 
         <div className="p-[20px] lg:paddingX">
-          <h2 className="h7">Description</h2>
+          <h2 className="h7 uppercase my-4">Description</h2>
           <p className="body-regular">
             Lorem ipsum dolor sit amet consectetur. Vivamus suspendisse
             porttitor etiam a rhoncus praesent mattis. Nunc eget facilisis
@@ -96,9 +96,7 @@ const ShopNow = () => {
         </div>
 
         <div className="p-[20px] lg:paddingX mt-14 mb-6">
-          <h2 className="h2">
-            Price <br /> breakdown
-          </h2>
+          <h2 className="text-4xl lg:text-6xl">Price breakdown</h2>
         </div>
 
         <div className="p-[20px] lg:paddingX flex gap-10">
@@ -108,11 +106,11 @@ const ShopNow = () => {
                 <div className="p-2 border border-1 border-black w-12 rounded-md  ">
                   Pro
                 </div>
-                <h2 className="h2">$0</h2>
+                <h2 className="text-2xl">$0</h2>
                 <p className="body-regular">3 Person</p>
               </div>
               <div className="flex gap-4">
-                <img src={check} alt="" />
+                <img src={check} alt="" className="w-6" />
                 <p className="body-regular">Pickup and drop</p>
               </div>
             </div>
@@ -123,11 +121,11 @@ const ShopNow = () => {
                 <div className="p-2 border border-1 border-black w-12 rounded-md  ">
                   Pro
                 </div>
-                <h2 className="h2">$0</h2>
+                <h2 className="text-2xl">$0</h2>
                 <p className="body-regular">3 Person</p>
               </div>
               <div className="flex gap-4">
-                <img src={check} alt="" />
+                <img src={check} alt="" className="w-6" />
                 <p className="body-regular">Pickup and drop</p>
               </div>
             </div>
@@ -135,7 +133,7 @@ const ShopNow = () => {
         </div>
 
         <div className="p-[20px] lg:paddingX mt-7 mb-8">
-          <h2 className="text-6xl lg:h2">Map</h2>
+          <h2 className="text-4xl lg:text-6xl">Map</h2>
           <p className="body-regular w-full my-5 capitalize text-sm lg:text-base">
             Lorem ipsum dolor sit amet consectetur. Vivamus suspendisse
             porttitor etiam a rhoncus praesent mattis. Nunc eget facilisis
@@ -144,12 +142,14 @@ const ShopNow = () => {
           </p>
         </div>
 
-        <div className="w-full my-4">
+        <div className="p-[20px] lg:paddingX w-full my-4">
           <img src={map} alt="" className="w-full bg-contain" />
         </div>
 
-        <h2 className="text-6xl paddingX my-14  lg:h2 ">Reviews</h2>
-        <div className="paddingX grid grid-cols-1 lg:grid-cols-2 gap-4 my-14">
+        <h2 className="text-4xl lg:text-6xl p-[20px] lg:paddingX my-4 lg:my-14">
+          Reviews
+        </h2>
+        <div className="p-[20px] lg:paddingX grid grid-cols-1 lg:grid-cols-2 gap-4 my-14">
           <div className="relative">
             <Swiper
               pagination={{
