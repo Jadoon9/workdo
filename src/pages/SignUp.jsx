@@ -4,8 +4,10 @@ import Input from "../components/common/Input";
 import userIcon from "../assets/user.svg";
 import showPass from "../assets/showPass.svg";
 import mail from "../assets/mail.svg";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
+  const navigate = useNavigate();
   return (
     <section className="grid grid-cols-1 lg:grid-cols-2 h-[100vh]">
       <div className="bg-primary-200 flex flex-col justify-start items-center  pt-6 px-4 lg:px-28">
@@ -71,7 +73,13 @@ const Login = () => {
         </div>
         <p className="body-medium text-primary-200 mt-4 lg:mt-0 mx-auto lg:py-14">
           Already have an account?
-          <span className="font-extrabold"> Log In</span>
+          <span
+            className="font-extrabold cursor-pointer"
+            onClick={() => navigate("/login")}
+          >
+            {" "}
+            Log In
+          </span>
         </p>
       </div>
     </section>

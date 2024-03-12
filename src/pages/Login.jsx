@@ -4,8 +4,10 @@ import Input from "../components/common/Input";
 import userIcon from "../assets/user.svg";
 import showPass from "../assets/showPass.svg";
 import mail from "../assets/mail.svg";
+import { useNavigate } from "react-router-dom";
 
 const SignUp = () => {
+  const navigate = useNavigate();
   return (
     <section className="grid grid-cols-1 lg:grid-cols-2 h-[100vh]">
       <div className="flex flex-col justify-center items-center lg:items-start px-6 lg:px-28">
@@ -52,7 +54,12 @@ const SignUp = () => {
         </div>
         <p className="body-medium text-primary-200 mx-auto py-14">
           Don't have an account?{" "}
-          <span className="font-extrabold">Create An Account</span>
+          <span
+            className="font-extrabold cursor-pointer"
+            onClick={() => navigate("/sign-up")}
+          >
+            Create An Account
+          </span>
         </p>
       </div>
       <div className="bg-primary-200 flex justify-center items-center hidden lg:flex">
