@@ -113,7 +113,7 @@ const MinuteDetails = () => {
           />
         </div>
         <div>
-          <h2 className="text-6xl lg:h1-bold ">
+          <h2 className="text-6xl lg:h2 ">
             More <br />
             Minutes
           </h2>
@@ -133,7 +133,7 @@ const MinuteDetails = () => {
               <img
                 src={about}
                 alt=""
-                className="rounded-[16px] w-full md:max-w-[400px] lg:max-w-[300px] object-cover"
+                className="rounded-[16px] w-full md:max-w-[400px] lg:max-w-[400px] object-cover"
               />
               <p className="text-gray-50 font-bold uppercase mt-6 body-medium text-xs md:text-sm lg:text-base">
                 19 OCT 2022 | BY JOHN DOE |

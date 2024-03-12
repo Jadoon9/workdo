@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import logo from "../../assets/landingpage/logo.svg";
 import Button from "./Button";
 
@@ -22,6 +22,7 @@ const navitems = [
 ];
 
 const Navbar = () => {
+  const navigate = useNavigate();
   return (
     <nav className="flex flex-wrap items-center justify-between px-4 py-2 mb-10  md:py-4 md:px-8">
       <Link to="/">
@@ -43,6 +44,7 @@ const Navbar = () => {
           textColor="text-white"
           paddingX="6"
           paddingY="2"
+          onClick={() => navigate("/login")}
         />
       </div>
     </nav>
