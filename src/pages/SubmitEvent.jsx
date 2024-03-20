@@ -13,7 +13,7 @@ const SubmitEvent = () => {
         tristique nunc viverra vitae cursus massa. Eget at amet tristique
         ultrices auctor.
       </p>
-      <div className="grid grid-cols-12 gap-8 w-full">
+      <div className="grid grid-cols-12 gap-8 w-full mt-8">
         <div className="col-span-12 md:col-span-6">
           <div className="mb-8 w-[90%] lg:w-full">
             <Input placeholder="Ahmed Ali" label="Name" />

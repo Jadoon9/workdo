@@ -166,7 +166,7 @@ const HomePage = () => {
             <div key={index}>
               <div className="">
                 <img src={users2} alt="" className="" />
-                <h2 className="h8 lg:h5  uppercase my-6 neue700  text-primary-50">
+                <h2 className="h8 lg:h5 lg:text-nowrap  uppercase my-6 neue700  text-primary-50">
                   {item}
                 </h2>
               </div>
