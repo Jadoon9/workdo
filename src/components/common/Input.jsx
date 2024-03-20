@@ -27,7 +27,7 @@ const Input = ({
         type={type}
         placeholder={placeholder}
         onChange={handleInputChange}
-        className={`w-full px-12 py-3 ${
+        className={`w-full px-6 lg:px-12 py-3 ${
           borderWhite ? "bg-white " : "bg-secondary-200"
         } border-2 rounded-[60px] outline-none border-primary-200 hover:opacity-85`}
         style={{ "::placeholder": { color: "#0C190E" } }}

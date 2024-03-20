@@ -29,9 +29,9 @@ const HomePage = () => {
 
   return (
     <div className="mb-8">
-      <section className="paddingX grid grid-cols-1 lg:grid-cols-2 my-10 items-center">
-        <div className="gap-y-2 my-28 text-center lg:text-left">
-          <h1 className="h1-bold font-[800] text-primary-200">
+      <section className="paddingXS lg:paddingX grid grid-cols-1 lg:grid-cols-2 my:4 lg:my-10 items-center">
+        <div className="gap-y-2 my-8  lg:my-28 text-center lg:text-left">
+          <h1 className=" h2-55 md:h2 lg:h1-bold font-[800] text-primary-200">
             Work events <br /> done right.
           </h1>
           <div className="flex flex-col lg:flex-row gap-3 my-6 ">
@@ -42,16 +42,18 @@ const HomePage = () => {
               paddingX="6"
               paddingY="2"
               onClick={() => navigate("/submit-event")}
+              smallText
             />
             <Button
-              text="BROWSE EXPERIENCE"
+              text="LIST YOUR BUSINESS"
               textColor="primary-200"
               paddingX="6"
               paddingY="2"
-              onClick={() => navigate("/browse-events")}
+              smallText
+              // onClick={() => navigate("/browse-events")}
             />
           </div>
-          <div className="w-full lg:w-5/6">
+          {/* <div className="w-full lg:w-5/6">
             <Button
               text="LIST YOUR BUSINESS"
               textColor="primary-200"
@@ -59,20 +61,21 @@ const HomePage = () => {
               paddingX="6"
               paddingY="2"
             />
-          </div>
+          </div> */}
         </div>
-        <div className="flex-center">
-          <img src={hero} className="" alt="hero" />
+        <div className="flex-center order-first lg:order-none lg:flex-none">
+          <img src={hero} className="w-auto object-contain" alt="hero" />
         </div>
       </section>
-      <div className="bg-primary-100 py-10 flex-center">
-        <h2 className="uppercase h4 text-[#F8F6EE]">
+
+      <div className="bg-primary-100 my-4 lg:my-0 py-10 flex-center">
+        <h2 className="paddingXS lg:paddingX uppercase h6 !leading-snug lg:h4 text-center  text-[#F8F6EE]">
           TEAM BUILDING • ENTERTAINMENT • WORKPLACE WELLBEING
         </h2>
       </div>
 
-      <section className="paddingX grid grid-cols-1 lg:grid-cols-2 gap-4 my-14">
-        <div className="relative">
+      <section className="paddingXS lg:paddingX  grid grid-cols-1 md:grid-cols-2 gap-4 my-10 lg:my-14">
+        <div className="relative order-last md:order-first">
           <Swiper
             pagination={{
               clickable: true,
@@ -83,30 +86,34 @@ const HomePage = () => {
           >
             {[...Array(3)].map((item, index) => (
               <SwiperSlide key={index}>
-                <div>
-                  <img src={ratings} alt="ratings" className="my-6" />
-                  <p className="body-regular ">
-                    Lorem ipsum dolor sit amet consectetur. Etiam et cras sit
-                    quisque tortor. Eget in vel mattis quis ultricies libero
-                    pharetra. Porta tristique nunc viverra vitae cursus massa.
-                    Eget at amet tristique ultrices auctor.Lorem ipsum dolor sit
-                    amet consectetur. Etiam et cras sit quisque tortor. Eget in
-                    vel mattis quis ultricies libero pharetra. Porta tristique
-                    nunc viverra vitae cursus massa. Eget at amet tristique
-                    ultrices auctor.
-                  </p>
-                  <h5 className="mt-6 text-primary h7">Adam Hales</h5>
+                <div className="mb-10 ">
+                  <img src={ratings} alt="ratings" className="w-auto my-6" />
+                  <div>
+                    <p className="body-regular lg:body-regular1 ">
+                      Lorem ipsum dolor sit amet consectetur. Etiam et cras sit
+                      quisque tortor. Eget in vel mattis quis ultricies libero
+                      pharetra. Porta tristique nunc viverra vitae cursus massa.
+                      Eget at amet tristique ultrices auctor.Lorem ipsum dolor
+                      sit amet consectetur. Etiam et cras sit quisque tortor.
+                      Eget in vel mattis quis ultricies libero pharetra. Porta
+                      tristique nunc viverra vitae cursus massa. Eget at amet
+                      tristique ultrices auctor.
+                    </p>
+                    <h5 className="mt-6 text-primary  body-regular lg:body-regular1  ">
+                      Adam Hales
+                    </h5>
+                  </div>
                 </div>
               </SwiperSlide>
             ))}
           </Swiper>
         </div>
-        <div className="flex-end">
-          <img src={workplace} alt="workplace" />
+        <div className="flex-center md:flex-end">
+          <img src={workplace} alt="workplace" className="w-auto" />
         </div>
       </section>
 
-      <div className="paddingX w-full lg:w-1/2 my-2">
+      {/* <div className="paddingX w-full lg:w-1/2 my-2">
         <h2 className="h2 text-primary-200">
           Ideas to <br /> get started
         </h2>
@@ -116,8 +123,8 @@ const HomePage = () => {
           tristique nunc viverra vitae cursus massa. Eget at amet tristique
           ultrices auctor.
         </p>
-      </div>
-      <section className="paddingX grid grid-cols-1 lg:grid-cols-3 gap-8 my-14">
+      </div> */}
+      {/* <section className="paddingX grid grid-cols-1 lg:grid-cols-3 gap-8 my-14">
         {[...Array(3)].map((item, index) => (
           <div key={index}>
             <img src={about} alt="" className="rounded-[16px] w-full" />
@@ -146,41 +153,45 @@ const HomePage = () => {
             </div>
           </div>
         ))}
-      </section>
+      </section> */}
 
-      <div className="paddingX w-full lg:w-1/2 my-12">
-        <h2 className="h2 text-primary-200 neue800 ">
+      <div className="paddingXS lg:paddingX   w-full lg:w-1/2 mt-14 lg:mt-0 lg:my-12">
+        <h2 className="h3 md:h2 text-primary-200 neue800 ">
           At workdo <br /> we believe
         </h2>
       </div>
-      <section className="paddingX grid grid-cols-1 lg:grid-cols-3 gap-8 my-14">
-        {[...Array(3)].map((item, index) => (
-          <div key={index}>
-            <img src={users2} alt="" />
-            <h2 className="h5 uppercase my-6 neue700  text-primary-50">
-              Team Experiences
-            </h2>
-            <p className="body-regular">
-              Vitae congue eu consequat ac felis placerat vestibulum lectus
-              mauris ultrices. Cursus sit amet dictum sit amet justo donec enim
-              diam porttitor lacus luctus accumsan tortor posuere.
-            </p>
-          </div>
-        ))}
+      <section className="paddingXS lg:paddingX  grid grid-cols-1 lg:grid-cols-3 gap-8 my-10 lg:my-14">
+        {["Team Experience", "Entertainment", "Workplace Wellbeing"].map(
+          (item, index) => (
+            <div key={index}>
+              <div className="">
+                <img src={users2} alt="" className="" />
+                <h2 className="h8 lg:h5  uppercase my-6 neue700  text-primary-50">
+                  {item}
+                </h2>
+              </div>
+              <p className="body-regular lg:body-regular1 ">
+                Vitae congue eu consequat ac felis placerat vestibulum lectus
+                mauris ultrices. Cursus sit amet dictum sit amet justo donec
+                enim diam porttitor lacus luctus accumsan tortor posuere.
+              </p>
+            </div>
+          )
+        )}
       </section>
 
-      <section className="paddingX w-full my-10">
-        <h2 className="h2 text-primary-200">
+      <section className="paddingXS lg:paddingX mt-14 lg:mt-0   w-full my-10">
+        <h2 className="h3 md:h2 text-primary-200">
           Why collab
           <br /> with Us
         </h2>
       </section>
 
       <section className="grid grid-cols-1 lg:grid-cols-12 gap-x-10">
-        <div className="col-span-1 lg:col-span-7 bg-primary-100 paddingX py-12 lg:h-[600px]">
+        <div className="col-span-1 lg:col-span-7 bg-primary-100 paddingXS lg:paddingX py-12 lg:h-[600px]">
           {[...Array(3)].map((item, index) => (
             <div
-              className="flex flex-col lg:flex-row gap-8 lg:space-y-10 lg:items-center"
+              className="flex my-8 lg:my-0 gap-8 lg:space-y-10 lg:items-center"
               key={index}
             >
               <img
@@ -188,7 +199,7 @@ const HomePage = () => {
                 alt="star"
                 className="w-12 h-12 lg:w-auto lg:h-auto"
               />
-              <p className="body-regular text-secondary-200">
+              <p className="body-regular lg:body-regular1 text-secondary-200">
                 Lorem ipsum dolor sit amet consectetur. Etiam et cras sit
                 quisque tortor. Eget in vel mattis quis ultricies libero
                 pharetra. Porta tristique nunc viverra vitae cursus massa. Eget
@@ -199,39 +210,39 @@ const HomePage = () => {
           <div className="ml-0 lg:ml-16 mt-16">
             <Button
               text="List your business"
-              width="full"
+              width="w-full"
               textColor="text-white"
               borderWhite
             />
           </div>
         </div>
-        <div className="col-span-1 lg:col-span-5 pr-10 lg:h-[600px]">
+        <div className="col-span-1 lg:col-span-5 lg:pr-10 lg:h-[600px]">
           <img
             src={foodImage}
             alt="foodImage"
-            className="w-full h-full object-cover"
+            className="w-full lg:w-auto h-full object-cover lg:object-cover"
           />
         </div>
       </section>
 
-      <section className="flex flex-col lg:flex-row justify-between items-center paddingX lg:space-x-32 w-full my-16">
-        <div className="my-10 w-full lg:w-auto lg:text-left text-center text-primary-200">
-          <h2 className="h2-57 text-primary-200 ">
+      <section className="flex paddingXS lg:paddingX flex-col lg:flex-row justify-between items-center  w-full my-16">
+        <div className="my-10 w-full lg:w-1/3  text-left  text-primary-200">
+          <h2 className="h3 md:h2 text-primary-200 ">
             Sign up to our
             <br /> <span className="">newsletter</span> <br />
             for inspiration
           </h2>
         </div>
 
-        <div className="w-full ">
-          <div className="flex flex-col gap-8 ">
+        <div className="w-full lg:w-1/2 flex-1 ">
+          <div className="flex w-full flex-col gap-8 ">
             <Input
               type="text"
               placeholder="Enter Your Email"
               handleInputChange={() => console.log("hhghgh")}
               renderButton
             />
-            <p className="body-medium mx-auto capitalize text-primary-100 font-light">
+            <p className="body-medium lg:body-18 mx-auto capitalize text-primary-100 font-light">
               Your email is safe with us, we dont spam.
             </p>
           </div>
@@ -239,33 +250,37 @@ const HomePage = () => {
       </section>
 
       <section className="bg-primary-100">
-        <div className="paddingX flex flex-col lg:flex-row  ">
-          <h2 className="h2 text-secondary-200 text-center lg:text-start py-8 w-full lg:w-1/2">
+        <div className=" paddingXS lg:paddingX  flex flex-col lg:flex-row  ">
+          <h2 className="h3 md:h2 text-secondary-200 text-start py-8 w-full lg:w-1/2">
             Follow US On <br />
             social media
           </h2>
-          <div className="flex items-center justify-center flex-row w-full ">
+          <div className="flex items-center justify-start flex-1 flex-row w-full ">
             <img
               src={InstaIcon}
               alt="InstaIcon"
-              className="mr-2 lg:mr-4 mb-2 lg:mb-0"
+              className="mr-2 w-12 lg:w-16 lg:mr-4 mb-2 lg:mb-0"
             />
             <img
               src={facebook}
               alt="facebook"
-              className="mr-2 lg:mr-4 mb-2 lg:mb-0"
+              className="mr-2 w-10 lg:w-12 lg:mr-4 mb-2 lg:mb-0"
             />
-            <img src={linkedIn} alt="linkedIn" />
+            <img
+              src={linkedIn}
+              alt="linkedIn"
+              className="mr-2 w-12 lg:w-16 lg:mr-4 mb-2 lg:mb-0"
+            />
           </div>
         </div>
       </section>
 
-      <section className="paddingX lg:p-8 my-12">
-        <h2 className="text-primary-200 h2 uppercase pt-10 pb-2">
+      <section className="paddingXS lg:paddingX  lg:p-8 my-12">
+        <h2 className="text-primary-200 h3 md:h2 uppercase pt-10 pb-2">
           Frequently asked <br />
           questions
         </h2>
-        <p className="w-full lg:w-1/2 text-start">
+        <p className="w-full body-regular md:body-regular1 lg:w-1/2 text-start">
           Lorem ipsum dolor sit amet consectetur. Etiam et cras sit quisque
           tortor. Eget in vel mattis quis ultricies libero pharetra. Porta
           tristique nunc viverra vitae cursus massa. Eget at amet tristique
@@ -279,10 +294,10 @@ const HomePage = () => {
               key={index}
             >
               <img src={faq} alt="" className="my-4" />
-              <h5 className="body-regular font-extrabold text-primary-50">
+              <h5 className="body-regular lg:body-regular1 font-extrabold text-primary-50">
                 Enim diam porttitor lacus luctus accumsan dsa tortor posuere.
               </h5>
-              <p className="text-gray-50 my-2 text-[18px]">
+              <p className="text-gray-50 body-medium lg:body-regular my-2 text-[18px]">
                 Vitae congue eu consequat ac felis placerat vestibulum lectus
                 mauris ultrices. Cursus sit amet dictum sit amet justo donec
                 enim diam porttitor lacus luctus accumsan tortor posuere.
@@ -291,7 +306,7 @@ const HomePage = () => {
           ))}
         </div>
       </section>
-
+      {/* 
       <section className="my-10 paddingX w-full">
         <h2 className=" text-primary-200 h2 uppercase  pt-10 pb-2">Minutes</h2>
         <p className="body-regular text-primary-50 w-[60%]">
@@ -323,7 +338,7 @@ const HomePage = () => {
             textColor="text-primary-200 fontBold"
           />
         </div>
-      </section>
+      </section> */}
     </div>
   );
 };

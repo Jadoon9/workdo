@@ -13,9 +13,7 @@ const Button = ({
       onClick={onClick}
       className={`px-6 py-2 border-2 ${
         borderWhite ? "border-secondary-200" : "border-primary-200"
-      } uppercase ${bgColor} ${width} hover:opacity-85 font-bold ${
-        !smallText ? "body-regular" : "body-small"
-      } hover:scale-105 ${textColor} rounded-[45px]`}
+      } uppercase ${bgColor} ${width} hover:opacity-85 font-bold body-medium lg:body-18 hover:scale-105 ${textColor} rounded-[45px]`}
     >
       <>{text}</>
     </button>

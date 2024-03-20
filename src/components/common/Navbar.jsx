@@ -4,21 +4,21 @@ import Button from "./Button";
 
 const navitems = [
   { id: 1, name: "Home", link: "/" },
-  {
-    id: 2,
-    name: "Experiences",
-    link: "/shop-now",
-  },
-  {
-    id: 3,
-    name: "How it works",
-    link: "/minutes-details",
-  },
-  {
-    id: 4,
-    name: "Minutes Blog",
-    link: "/faq",
-  },
+  // {
+  //   id: 2,
+  //   name: "Experiences",
+  //   link: "/shop-now",
+  // },
+  // {
+  //   id: 3,
+  //   name: "How it works",
+  //   link: "/minutes-details",
+  // },
+  // {
+  //   id: 4,
+  //   name: "Minutes Blog",
+  //   link: "/faq",
+  // },
 ];
 
 const Navbar = () => {
@@ -26,7 +26,7 @@ const Navbar = () => {
   return (
     <nav className="flex flex-wrap items-center justify-between px-4 py-2 mb-10  md:py-4 md:px-8">
       <Link to="/">
-        <img src={logo} alt="Logo" className="w-24 md:w-auto object-cover" />
+        <img src={logo} alt="Logo" className="w-auto object-cover" />
       </Link>
       <div className="flex items-center gap-x-8">
         <div className="hidden md:flex gap-x-8">
