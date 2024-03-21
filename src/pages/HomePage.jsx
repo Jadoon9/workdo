@@ -1,5 +1,5 @@
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay, Pagination } from "swiper/modules";
+import { Autoplay, Navigation, Pagination } from "swiper/modules";
 
 import "swiper/css";
 import "swiper/css/pagination";
@@ -18,6 +18,7 @@ import celeberate from "../assets/landingpage/celeberate.svg";
 import heartUser from "../assets/landingpage/userHeart.svg";
 import users2 from "../assets/landingpage/users2.svg";
 import starIcon from "../assets/landingpage/stars.svg";
+import nextSlide from "../assets/next.svg";
 import foodImage from "../assets/landingpage/food.svg";
 import InstaIcon from "../assets/landingpage/insta.svg";
 import linkedIn from "../assets/landingpage/linkedin.svg";
@@ -42,9 +43,11 @@ const HomePage = () => {
   useEffect(() => {
     const updateSlidesPerView = () => {
       const screenWidth = window.innerWidth;
-      const slidesPerView = screenWidth < 768 ? 1 : 3; // Condition to set slidesPerView
-      swiperRef.current.swiper.params.slidesPerView = slidesPerView;
-      swiperRef.current.swiper.update();
+      const slidesPerView = screenWidth < 768 ? 1 : 3;
+      if (swiperRef.current) {
+        swiperRef.current.swiper.params.slidesPerView = slidesPerView;
+        swiperRef.current.swiper.update();
+      }
     };
 
     window.addEventListener("resize", updateSlidesPerView);
@@ -360,7 +363,7 @@ const HomePage = () => {
           tristique nunc viverra vitae cursus massa. Eget at amet tristique
           ultrices auctor.
         </p>
-        <div className="my-12">
+        <div className="my-12 ">
           {pendindFaq ? (
             <Loader />
           ) : (
@@ -371,13 +374,13 @@ const HomePage = () => {
               navigation
               pagination={{ clickable: true }}
               autoplay={{ delay: 3000 }}
-              modules={[Autoplay]}
+              modules={[Autoplay, Navigation]}
               className="mySwiper"
               loop
             >
               {dataFaq?.map?.((item, index) => (
                 <SwiperSlide key={index}>
-                  <div className="bg-white rounded-[18px] border-4 border-primary-200 p-4 lg:p-8">
+                  <div className="bg-white  rounded-[18px] border-4 border-primary-200 p-4 lg:p-8">
                     <img src={faq} alt="" className="my-4" />
                     <h5 className="body-regular lg:body-regular1 font-extrabold text-primary-50">
                       {item?.question}
@@ -388,6 +391,7 @@ const HomePage = () => {
                   </div>
                 </SwiperSlide>
               ))}
+              {/* Default next and previous buttons */}
               <div className="swiper-button-prev"></div>
               <div className="swiper-button-next"></div>
             </Swiper>
