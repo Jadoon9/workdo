@@ -146,7 +146,7 @@ const HomePage = () => {
               modules={[Pagination, Autoplay]}
               className="mySwiper"
             >
-              {dataEntertainment.length > 0 ? (
+              {dataEntertainment?.length > 0 ? (
                 dataEntertainment?.map?.((item, index) => (
                   <SwiperSlide key={index}>
                     <div className="mb-10 ">
@@ -378,7 +378,7 @@ const HomePage = () => {
               className="mySwiper"
               loop
             >
-              {dataFaq.length > 0 ? (
+              {dataFaq?.length > 0 ? (
                 dataFaq?.map?.((item, index) => (
                   <SwiperSlide key={index}>
                     <div className="bg-white  rounded-[18px] border-4 border-primary-200 p-4 lg:p-8">
