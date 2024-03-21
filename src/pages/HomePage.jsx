@@ -31,12 +31,28 @@ import {
   getFaq,
 } from "../services/actions/landing";
 import Loader from "../components/common/Loader";
-import { useState } from "react";
-import { toast } from "react-toastify";
 import InputCommon from "../components/common/InputCommon";
+import { useEffect, useRef, useState } from "react";
+import { toast } from "react-toastify";
 
 const HomePage = () => {
   const navigate = useNavigate();
+  const swiperRef = useRef(null);
+
+  useEffect(() => {
+    const updateSlidesPerView = () => {
+      const screenWidth = window.innerWidth;
+      const slidesPerView = screenWidth < 768 ? 1 : 3; // Condition to set slidesPerView
+      swiperRef.current.swiper.params.slidesPerView = slidesPerView;
+      swiperRef.current.swiper.update();
+    };
+
+    window.addEventListener("resize", updateSlidesPerView);
+    updateSlidesPerView(); // Call initially to set correct slidesPerView
+    return () => {
+      window.removeEventListener("resize", updateSlidesPerView);
+    };
+  }, []);
 
   const [newsLetter, setNewsLetter] = useState("");
   const {
@@ -349,6 +365,7 @@ const HomePage = () => {
             <Loader />
           ) : (
             <Swiper
+              ref={swiperRef}
               slidesPerView={3}
               spaceBetween={10}
               navigation
