@@ -91,6 +91,7 @@ const HomePage = () => {
       },
     });
 
+  console.log(dataEntertainment, "dataEntertainment");
   return (
     <div className="mb-8">
       <section className="paddingXS lg:paddingX grid grid-cols-1 lg:grid-cols-2 my-4 lg:my-10 items-center">
@@ -146,7 +147,8 @@ const HomePage = () => {
               modules={[Pagination, Autoplay]}
               className="mySwiper"
             >
-              {dataEntertainment?.length > 0 ? (
+              {dataEntertainment?.length > 0 &&
+              dataEntertainment !== undefined ? (
                 dataEntertainment?.map?.((item, index) => (
                   <SwiperSlide key={index}>
                     <div className="mb-10 ">
@@ -167,8 +169,8 @@ const HomePage = () => {
                   </SwiperSlide>
                 ))
               ) : (
-                <h3 className="body-regular lg:body-regular1 ">
-                  No feedbacks yet.
+                <h3 className="body-regular futura800 lg:body-regular1 ">
+                  No feedbacks found.
                 </h3>
               )}
             </Swiper>
@@ -378,25 +380,25 @@ const HomePage = () => {
               className="mySwiper"
               loop
             >
-              {dataFaq?.length > 0 ? (
-                dataFaq?.map?.((item, index) => (
-                  <SwiperSlide key={index}>
-                    <div className="bg-white  rounded-[18px] border-4 border-primary-200 p-4 lg:p-8">
-                      <img src={faq} alt="" className="my-4" />
-                      <h5 className="body-regular lg:body-regular1 font-extrabold text-primary-50">
-                        {item?.question}
-                      </h5>
-                      <p className="text-gray-50 body-medium lg:body-regular my-2 text-[18px]">
-                        {item?.answer}
-                      </p>
-                    </div>
-                  </SwiperSlide>
-                ))
-              ) : (
-                <h3 className="body-regular lg:body-regular1 ">
-                  No questions yet.
-                </h3>
-              )}
+              {dataFaq?.length > 0
+                ? dataFaq?.map?.((item, index) => (
+                    <SwiperSlide key={index}>
+                      <div className="bg-white  rounded-[18px] border-4 border-primary-200 p-4 lg:p-8">
+                        <img src={faq} alt="" className="my-4" />
+                        <h5 className="body-regular lg:body-regular1 font-extrabold text-primary-50">
+                          {item?.question}
+                        </h5>
+                        <p className="text-gray-50 body-medium lg:body-regular my-2 text-[18px]">
+                          {item?.answer}
+                        </p>
+                      </div>
+                    </SwiperSlide>
+                  ))
+                : null
+                  // <h3 className="body-regular futura800 lg:body-regular1 ">
+                  //   No questions found.
+                  // </h3>
+              }
               {/* Default next and previous buttons */}
               <div className="swiper-button-prev"></div>
               <div className="swiper-button-next"></div>
