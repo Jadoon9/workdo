@@ -378,19 +378,25 @@ const HomePage = () => {
               className="mySwiper"
               loop
             >
-              {dataFaq?.map?.((item, index) => (
-                <SwiperSlide key={index}>
-                  <div className="bg-white  rounded-[18px] border-4 border-primary-200 p-4 lg:p-8">
-                    <img src={faq} alt="" className="my-4" />
-                    <h5 className="body-regular lg:body-regular1 font-extrabold text-primary-50">
-                      {item?.question}
-                    </h5>
-                    <p className="text-gray-50 body-medium lg:body-regular my-2 text-[18px]">
-                      {item?.answer}
-                    </p>
-                  </div>
-                </SwiperSlide>
-              ))}
+              {dataFaq.length > 0 ? (
+                dataFaq?.map?.((item, index) => (
+                  <SwiperSlide key={index}>
+                    <div className="bg-white  rounded-[18px] border-4 border-primary-200 p-4 lg:p-8">
+                      <img src={faq} alt="" className="my-4" />
+                      <h5 className="body-regular lg:body-regular1 font-extrabold text-primary-50">
+                        {item?.question}
+                      </h5>
+                      <p className="text-gray-50 body-medium lg:body-regular my-2 text-[18px]">
+                        {item?.answer}
+                      </p>
+                    </div>
+                  </SwiperSlide>
+                ))
+              ) : (
+                <h3 className="body-regular lg:body-regular1 ">
+                  No questions yet.
+                </h3>
+              )}
               {/* Default next and previous buttons */}
               <div className="swiper-button-prev"></div>
               <div className="swiper-button-next"></div>
