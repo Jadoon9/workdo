@@ -44,7 +44,7 @@ const Navbar = () => {
           textColor="text-white"
           paddingX="6"
           paddingY="2"
-          onClick={() => navigate("/login")}
+          // onClick={() => navigate("/login")}
         />
       </div>
     </nav>

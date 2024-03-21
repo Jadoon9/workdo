@@ -1,5 +1,5 @@
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Pagination } from "swiper/modules";
+import { Autoplay, Pagination } from "swiper/modules";
 
 import "swiper/css";
 import "swiper/css/pagination";
@@ -14,24 +14,69 @@ import star from "../assets/landingpage/star.svg";
 import location from "../assets/landingpage/location.svg";
 import users from "../assets/landingpage/users.svg";
 import s from "../assets/landingpage/s.svg";
+import celeberate from "../assets/landingpage/celeberate.svg";
+import heartUser from "../assets/landingpage/userHeart.svg";
 import users2 from "../assets/landingpage/users2.svg";
 import starIcon from "../assets/landingpage/stars.svg";
 import foodImage from "../assets/landingpage/food.svg";
-import Input from "../components/common/Input";
 import InstaIcon from "../assets/landingpage/insta.svg";
 import linkedIn from "../assets/landingpage/linkedin.svg";
 import facebook from "../assets/landingpage/fb.svg";
 import faq from "../assets/landingpage/faq.svg";
 import minutes from "../assets/landingpage/minutes.svg";
+import { useMutation, useQuery } from "@tanstack/react-query";
+import {
+  addNewsletter,
+  getEntertainments,
+  getFaq,
+} from "../services/actions/landing";
+import Loader from "../components/common/Loader";
+import { useState } from "react";
+import { toast } from "react-toastify";
+import InputCommon from "../components/common/InputCommon";
 
 const HomePage = () => {
   const navigate = useNavigate();
 
+  const [newsLetter, setNewsLetter] = useState("");
+  const {
+    isPending: pendindEntertainment,
+    isError: isErrorEntertainment,
+    data: dataEntertainment,
+    error: errorEntertainment,
+  } = useQuery({
+    queryKey: ["entertainments"],
+    queryFn: getEntertainments,
+  });
+
+  const {
+    isPending: pendindFaq,
+    isError: isErrorFaq,
+    data: dataFaq,
+    error: errorFaq,
+  } = useQuery({
+    queryKey: ["faq"],
+    queryFn: getFaq,
+  });
+
+  const { mutate: mutateNewsLetter, isPending: pendingNewsLetter } =
+    useMutation({
+      mutationFn: addNewsletter,
+      onError: (data) => {
+        console.log(data, "jkjkj");
+        toast.error(data?.response?.data?.email[0]);
+      },
+      onSuccess: () => {
+        toast.success("Successfully Subscribed");
+        setNewsLetter("");
+      },
+    });
+
   return (
     <div className="mb-8">
-      <section className="paddingXS lg:paddingX grid grid-cols-1 lg:grid-cols-2 my:4 lg:my-10 items-center">
+      <section className="paddingXS lg:paddingX grid grid-cols-1 lg:grid-cols-2 my-4 lg:my-10 items-center">
         <div className="gap-y-2 my-8  lg:my-28 text-center lg:text-left">
-          <h1 className=" h2-55 md:h2 lg:h1-bold font-[800] text-primary-200">
+          <h1 className="h2-55 md:h2 lg:h1-bold font-[800] text-primary-200">
             Work events <br /> done right.
           </h1>
           <div className="flex flex-col lg:flex-row gap-3 my-6 ">
@@ -53,18 +98,13 @@ const HomePage = () => {
               // onClick={() => navigate("/browse-events")}
             />
           </div>
-          {/* <div className="w-full lg:w-5/6">
-            <Button
-              text="LIST YOUR BUSINESS"
-              textColor="primary-200"
-              width="full"
-              paddingX="6"
-              paddingY="2"
-            />
-          </div> */}
         </div>
-        <div className="flex-center order-first lg:order-none lg:flex-none">
-          <img src={hero} className="w-auto object-contain" alt="hero" />
+        <div className="flex-center order-first lg:order-none lg:flex-none transition-opacity duration-1000">
+          <img
+            src={hero}
+            className="w-auto object-contain opacity-0 lg:opacity-100"
+            alt="hero"
+          />
         </div>
       </section>
 
@@ -75,39 +115,46 @@ const HomePage = () => {
       </div>
 
       <section className="paddingXS lg:paddingX  grid grid-cols-1 md:grid-cols-2 gap-4 my-10 lg:my-14">
-        <div className="relative order-last md:order-first">
-          <Swiper
-            pagination={{
-              clickable: true,
-            }}
-            autoplay={{ delay: 3000 }}
-            modules={[Pagination]}
-            className="mySwiper"
-          >
-            {[...Array(3)].map((item, index) => (
-              <SwiperSlide key={index}>
-                <div className="mb-10 ">
-                  <img src={ratings} alt="ratings" className="w-auto my-6" />
-                  <div>
-                    <p className="body-regular lg:body-regular1 ">
-                      Lorem ipsum dolor sit amet consectetur. Etiam et cras sit
-                      quisque tortor. Eget in vel mattis quis ultricies libero
-                      pharetra. Porta tristique nunc viverra vitae cursus massa.
-                      Eget at amet tristique ultrices auctor.Lorem ipsum dolor
-                      sit amet consectetur. Etiam et cras sit quisque tortor.
-                      Eget in vel mattis quis ultricies libero pharetra. Porta
-                      tristique nunc viverra vitae cursus massa. Eget at amet
-                      tristique ultrices auctor.
-                    </p>
-                    <h5 className="mt-6 text-primary  body-regular lg:body-regular1  ">
-                      Adam Hales
-                    </h5>
-                  </div>
-                </div>
-              </SwiperSlide>
-            ))}
-          </Swiper>
-        </div>
+        {pendindEntertainment ? (
+          <Loader />
+        ) : (
+          <div className="relative order-last md:order-first">
+            <Swiper
+              pagination={{
+                clickable: true,
+              }}
+              autoplay={{ delay: 3000 }}
+              modules={[Pagination, Autoplay]}
+              className="mySwiper"
+            >
+              {dataEntertainment.length > 0 ? (
+                dataEntertainment?.map?.((item, index) => (
+                  <SwiperSlide key={index}>
+                    <div className="mb-10 ">
+                      <img
+                        src={ratings}
+                        alt="ratings"
+                        className="w-auto my-6"
+                      />
+                      <div>
+                        <p className="body-regular lg:body-regular1 ">
+                          {item.feedback}
+                        </p>
+                        <h5 className="mt-6 text-primary neue700  body-regular lg:body-regular1  ">
+                          {item.username}
+                        </h5>
+                      </div>
+                    </div>
+                  </SwiperSlide>
+                ))
+              ) : (
+                <h3 className="body-regular lg:body-regular1 ">
+                  No feedbacks yet.
+                </h3>
+              )}
+            </Swiper>
+          </div>
+        )}
         <div className="flex-center md:flex-end">
           <img src={workplace} alt="workplace" className="w-auto" />
         </div>
@@ -155,7 +202,7 @@ const HomePage = () => {
         ))}
       </section> */}
 
-      <div className="paddingXS lg:paddingX   w-full lg:w-1/2 mt-14 lg:mt-0 lg:my-12">
+      <div className="paddingXS lg:paddingX   w-full lg:w-1/2 mt-14 lg:mt-24  lg:my-12">
         <h2 className="h3 md:h2 text-primary-200 neue800 ">
           At workdo <br /> we believe
         </h2>
@@ -165,8 +212,14 @@ const HomePage = () => {
           (item, index) => (
             <div key={index}>
               <div className="">
-                <img src={users2} alt="" className="" />
-                <h2 className="h8 lg:h5 lg:text-nowrap  uppercase my-6 neue700  text-primary-50">
+                <img
+                  src={
+                    index == 0 ? users2 : index === 1 ? celeberate : heartUser
+                  }
+                  alt=""
+                  className=""
+                />
+                <h2 className="h8 lg:h5 lg:text-nowrap font-medium  uppercase my-6 neue700  text-primary-50">
                   {item}
                 </h2>
               </div>
@@ -181,9 +234,9 @@ const HomePage = () => {
       </section>
 
       <section className="paddingXS lg:paddingX mt-14 lg:mt-0   w-full my-10">
-        <h2 className="h3 md:h2 text-primary-200">
+        <h2 className="h3 md:h2 text-primary-200 neue800">
           Why collab
-          <br /> with Us
+          <br /> with us
         </h2>
       </section>
 
@@ -227,19 +280,24 @@ const HomePage = () => {
 
       <section className="flex paddingXS lg:paddingX flex-col lg:flex-row justify-between items-center  w-full my-16">
         <div className="my-10 w-full lg:w-1/3  text-left  text-primary-200">
-          <h2 className="h3 md:h2 text-primary-200 ">
+          <h2 className="h3 md:h2 text-primary-200  ">
             Sign up to our
-            <br /> <span className="">newsletter</span> <br />
+            <br /> <span className="neue800">newsletter</span> <br />
             for inspiration
           </h2>
         </div>
 
         <div className="w-full lg:w-1/2 flex-1 ">
           <div className="flex w-full flex-col gap-8 ">
-            <Input
+            <InputCommon
               type="text"
               placeholder="Enter Your Email"
-              handleInputChange={() => console.log("hhghgh")}
+              handleInputChange={(e) => {
+                setNewsLetter(e.target.value);
+              }}
+              value={newsLetter}
+              pending={pendingNewsLetter}
+              buttonOnClick={() => mutateNewsLetter({ email: newsLetter })}
               renderButton
             />
             <p className="body-medium lg:body-18 mx-auto capitalize text-primary-100 font-light">
@@ -251,7 +309,7 @@ const HomePage = () => {
 
       <section className="bg-primary-100">
         <div className=" paddingXS lg:paddingX  flex flex-col lg:flex-row  ">
-          <h2 className="h3 md:h2 text-secondary-200 text-start py-8 w-full lg:w-1/2">
+          <h2 className="h3 md:h2 text-secondary-200 neue800 text-start py-8 w-full lg:w-1/2">
             Follow US On <br />
             social media
           </h2>
@@ -276,7 +334,7 @@ const HomePage = () => {
       </section>
 
       <section className="paddingXS lg:paddingX  lg:p-8 my-12">
-        <h2 className="text-primary-200 h3 md:h2 uppercase pt-10 pb-2">
+        <h2 className="text-primary-200 h3 md:h2  neue800 pt-10 pb-2">
           Frequently asked <br />
           questions
         </h2>
@@ -286,24 +344,37 @@ const HomePage = () => {
           tristique nunc viverra vitae cursus massa. Eget at amet tristique
           ultrices auctor.
         </p>
-
-        <div className="flex flex-col lg:flex-row my-12 gap-4">
-          {[...Array(3)].map((item, index) => (
-            <div
-              className="bg-white rounded-[18px] border-4 border-primary-200 p-4 lg:p-8"
-              key={index}
+        <div className="my-12">
+          {pendindFaq ? (
+            <Loader />
+          ) : (
+            <Swiper
+              slidesPerView={3}
+              spaceBetween={10}
+              navigation
+              pagination={{ clickable: true }}
+              autoplay={{ delay: 3000 }}
+              modules={[Autoplay]}
+              className="mySwiper"
+              loop
             >
-              <img src={faq} alt="" className="my-4" />
-              <h5 className="body-regular lg:body-regular1 font-extrabold text-primary-50">
-                Enim diam porttitor lacus luctus accumsan dsa tortor posuere.
-              </h5>
-              <p className="text-gray-50 body-medium lg:body-regular my-2 text-[18px]">
-                Vitae congue eu consequat ac felis placerat vestibulum lectus
-                mauris ultrices. Cursus sit amet dictum sit amet justo donec
-                enim diam porttitor lacus luctus accumsan tortor posuere.
-              </p>
-            </div>
-          ))}
+              {dataFaq?.map?.((item, index) => (
+                <SwiperSlide key={index}>
+                  <div className="bg-white rounded-[18px] border-4 border-primary-200 p-4 lg:p-8">
+                    <img src={faq} alt="" className="my-4" />
+                    <h5 className="body-regular lg:body-regular1 font-extrabold text-primary-50">
+                      {item?.question}
+                    </h5>
+                    <p className="text-gray-50 body-medium lg:body-regular my-2 text-[18px]">
+                      {item?.answer}
+                    </p>
+                  </div>
+                </SwiperSlide>
+              ))}
+              <div className="swiper-button-prev"></div>
+              <div className="swiper-button-next"></div>
+            </Swiper>
+          )}
         </div>
       </section>
       {/* 

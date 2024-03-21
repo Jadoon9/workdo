@@ -6,10 +6,12 @@ const Button = ({
   width,
   borderWhite,
   smallText,
+  disabled,
   onClick,
 }) => {
   return (
     <button
+      disabled={disabled}
       onClick={onClick}
       className={`px-6 py-2 border-2 ${
         borderWhite ? "border-secondary-200" : "border-primary-200"

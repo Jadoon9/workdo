@@ -1,8 +1,8 @@
 /* eslint-disable react/prop-types */
-import { useField } from "formik";
+
 import Button from "./Button";
 
-const Input = ({
+const InputCommon = ({
   type,
   placeholder,
   handleInputChange,
@@ -17,7 +17,6 @@ const Input = ({
   pending,
   icon,
 }) => {
-  const [field, meta] = useField(name);
   return (
     <div className="relative my-4">
       {label && (
@@ -37,7 +36,6 @@ const Input = ({
         value={value}
         placeholder={placeholder}
         onChange={handleInputChange}
-        {...field}
       />
       {renderButton && (
         <div className="absolute top-0 right-2 h-full flex items-center">
@@ -56,14 +54,8 @@ const Input = ({
           <img src={icon} alt="" />
         </div>
       )}
-
-      {meta?.touched && meta?.error && (
-        <p className="text-red-700 futura500 body-medium">
-          {meta?.error || "\u00A0"}
-        </p>
-      )}
     </div>
   );
 };
 
-export default Input;
+export default InputCommon;
