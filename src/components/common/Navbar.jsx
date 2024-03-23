@@ -52,7 +52,7 @@ const Navbar = () => {
               </p>
               {item.name !== "Home" && (
                 <span className="absolute left-1/2 -bottom-8 transform -translate-x-1/2 w-max py-1 px-2 bg-primary-200 text-white text-xs rounded-md whitespace-nowrap opacity-0 tooltip-text transition-opacity duration-300">
-                  Comming Soon
+                  Coming Soon
                 </span>
               )}
             </Link>

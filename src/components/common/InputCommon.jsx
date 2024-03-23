@@ -30,7 +30,7 @@ const InputCommon = ({
       <input
         className={`w-full px-6 lg:px-12 py-3 ${
           borderWhite ? "bg-white " : "bg-secondary-200"
-        } border-2 rounded-[60px] outline-none border-primary-200 hover:opacity-85`}
+        } border-2 rounded-[60px] text-primary-200 outline-none border-primary-200 hover:opacity-85`}
         style={{ "::placeholder": { color: "#0C190E" } }}
         type={type}
         value={value}
@@ -38,7 +38,7 @@ const InputCommon = ({
         onChange={handleInputChange}
       />
       {renderButton && (
-        <div className="absolute top-0 right-2 h-full flex items-center">
+        <div className="absolute top-0 right-1 h-full flex items-center">
           <Button
             text="Subscribe"
             width="auto"

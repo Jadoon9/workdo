@@ -93,6 +93,35 @@
   font-weight: 300;
 }
 
+/* CSS */
+::-webkit-input-placeholder {
+  /* WebKit browsers (Chrome, Safari) */
+  color: #0c190e !important; /* Change to your desired color */
+}
+
+:-moz-placeholder {
+  /* Mozilla Firefox 4 to 18 */
+  color: #0c190e !important; /* Change to your desired color */
+}
+
+::-moz-placeholder {
+  /* Mozilla Firefox 19+ */
+  color: #0c190e !important; /* Change to your desired color */
+}
+
+:-ms-input-placeholder {
+  /* Internet Explorer 10+ */
+  color: #0c190e !important; /* Change to your desired color */
+}
+
+::-webkit-scrollbar {
+  width: 0px; /* Set the width of the scrollbar */
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+  font-size: 26px; /* Adjust the size as needed */
+}
+
 body {
   margin: 0px;
   padding: 0px;

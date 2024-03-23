@@ -53,6 +53,10 @@ const HomePage = () => {
 
     updateSlidesPerView(); // Call initially to set correct slidesPerView
 
+    // Add event listener for window resize
+    window.addEventListener("resize", updateSlidesPerView);
+
+    // Cleanup function to remove event listener
     return () => {
       window.removeEventListener("resize", updateSlidesPerView);
     };
@@ -107,7 +111,7 @@ const HomePage = () => {
   console.log(dataEntertainment, "dataEntertainment");
   return (
     <div className="mb-8">
-      <section className="paddingXS lg:paddingX grid grid-cols-1 lg:grid-cols-2 my-4 lg:my-10 items-center">
+      <section className="paddingXS !lg:paddingX grid grid-cols-1 lg:grid-cols-2 my-4 lg:my-10 items-center">
         <div className="gap-y-2 my-8  lg:my-28 text-center lg:text-left">
           <h1 className="h2-55 md:h2 lg:h1-bold font-[800] text-primary-200">
             Work events <br /> done right.
@@ -135,14 +139,14 @@ const HomePage = () => {
         <div className="flex-center order-first lg:order-none lg:flex-none transition-opacity duration-1000">
           <img
             src={hero}
-            className="w-auto object-contain opacity-0 lg:opacity-100"
+            className="w-auto object-contain lg:opacity-100"
             alt="hero"
           />
         </div>
       </section>
 
       <div className="bg-primary-100 my-4 lg:my-0 py-10 flex-center">
-        <h2 className="paddingXS lg:paddingX uppercase h6 !leading-snug lg:h4 text-center  text-[#F8F6EE]">
+        <h2 className="paddingXS lg:paddingX uppercase neue800 h6 !leading-snug lg:h4 text-center  text-[#F8F6EE]">
           TEAM BUILDING • ENTERTAINMENT • WORKPLACE WELLBEING
         </h2>
       </div>
@@ -321,7 +325,7 @@ const HomePage = () => {
           </h2>
         </div>
 
-        <div className="w-full lg:w-1/2 flex-1 ">
+        <div className="w-full lg:w-1/2  ">
           <div className="flex w-full flex-col gap-8 ">
             <InputCommon
               type="text"
@@ -334,7 +338,7 @@ const HomePage = () => {
               buttonOnClick={() => mutateNewsLetter({ email: newsLetter })}
               renderButton
             />
-            <p className="body-medium lg:body-18 mx-auto capitalize text-primary-100 font-light">
+            <p className="body-medium lg:body-18 mx-auto capitalize text-primary-200 font-light">
               Your email is safe with us, we dont spam.
             </p>
           </div>

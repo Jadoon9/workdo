@@ -1,19 +1,50 @@
 import * as Yup from "yup";
 
 export const validationSchema = Yup.object().shape({
-  name: Yup.string().required("Name is required"),
+  name: Yup.string().trim().required("Full name is required"),
+  // .test("is-not-whitespace", "Full name cannot be empty", (value) => {
+  //   // Check if the input consists only of whitespace characters
+  //   return value.trim().length > 0;
+  // }),
   email: Yup.string()
     .email("Invalid email address")
     .required("Email is required"),
-  eventType: Yup.string().required("Event type is required"),
+  eventType: Yup.string()
+    .trim()
+    .required("Event type is required")
+    .test("is-not-whitespace", "Type cannot be empty", (value) => {
+      // Check if the input consists only of whitespace characters
+      return value.trim().length > 0;
+    }),
   totalGuests: Yup.number()
-    .required("Total guests is required")
-    .positive("Total guests must be positive"),
-  date: Yup.date().required("Date is required"),
+    .required("Guests is required")
+    .max(500, "Guests cannot exceed 500")
+    .positive("Guests must be positive"),
+  date: Yup.date()
+    .required("Date is required")
+    .min(new Date(), "Date cannot be before the current date"),
   phone: Yup.string().required("Phone number is required"),
-  budget: Yup.number()
+  budget: Yup.string()
+    .trim()
     .required("Budget is required")
-    .positive("Budget must be positive"),
-  eventTheme: Yup.string().required("Event theme is required"),
-  eventDetails: Yup.string().required("Event details are required"),
+    // .positive("Budget must be positive")
+    .test("is-not-whitespace", "Full name cannot be empty", (value) => {
+      // Check if the input consists only of whitespace characters
+      return value.trim().length > 0;
+    }),
+
+  eventTheme: Yup.string()
+    .trim()
+    .required("Event theme is required")
+    .test("is-not-whitespace", "Theme cannot be empty", (value) => {
+      // Check if the input consists only of whitespace characters
+      return value.trim().length > 0;
+    }),
+  eventDetails: Yup.string()
+    .trim()
+    .required("Event details are required")
+    .test("is-not-whitespace", "Full name cannot be empty", (value) => {
+      // Check if the input consists only of whitespace characters
+      return value.trim().length > 0;
+    }),
 });

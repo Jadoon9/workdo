@@ -9,6 +9,7 @@ const Input = ({
   renderButton,
   buttonOnClick,
   buttonText,
+  onKeyDown,
   value,
   name,
   label,
@@ -35,6 +36,7 @@ const Input = ({
         style={{ "::placeholder": { color: "#0C190E" } }}
         type={type}
         value={value}
+        onKeyDown={onKeyDown}
         placeholder={placeholder}
         onChange={handleInputChange}
         {...field}
