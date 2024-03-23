@@ -20,8 +20,8 @@ const links = [
 const Footer = () => {
   const navigate = useNavigate();
   return (
-    <footer className="bg-primary-200 paddingXS lg:paddingX py-12 lg:py-16">
-      <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12">
+    <footer className="bg-primary-200 w-full paddingXS lg:paddingX py-12 lg:py-16">
+      <div className="grid grid-cols-1 md:grid-cols-12 gap-y-8 md:gap-y-12">
         <div className="col-span-12 md:col-span-5 flex flex-col w-full md:w-3/4 space-y-6">
           <img src={whiteLogo} alt="" className="w-60" />
           <p className="text-secondary-200 body-regular lg:body-regular1 font-light text-start md:text-left">

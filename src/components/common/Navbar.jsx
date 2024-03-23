@@ -1,40 +1,60 @@
 import { Link, useNavigate } from "react-router-dom";
 import logo from "../../assets/landingpage/logo.svg";
 import Button from "./Button";
+import { useEffect } from "react";
 
 const navitems = [
   { id: 1, name: "Home", link: "/" },
-  // {
-  //   id: 2,
-  //   name: "Experiences",
-  //   link: "/shop-now",
-  // },
-  // {
-  //   id: 3,
-  //   name: "How it works",
-  //   link: "/minutes-details",
-  // },
-  // {
-  //   id: 4,
-  //   name: "Minutes Blog",
-  //   link: "/faq",
-  // },
+  {
+    id: 2,
+    name: "Experiences",
+    link: "/shop-now",
+  },
+  {
+    id: 3,
+    name: "How it works",
+    link: "/minutes-details",
+  },
+  {
+    id: 4,
+    name: "Minutes Blog",
+    link: "/faq",
+  },
 ];
 
 const Navbar = () => {
   const navigate = useNavigate();
+
+  useEffect(() => {
+    // Initialize tooltips when component mounts
+    const tooltips = document.querySelectorAll(".nav-tooltip");
+    tooltips.forEach((tooltip) => {
+      tooltip.addEventListener("mouseover", () => {
+        tooltip.querySelector(".tooltip-text").style.opacity = "1";
+      });
+      tooltip.addEventListener("mouseout", () => {
+        tooltip.querySelector(".tooltip-text").style.opacity = "0";
+      });
+    });
+  }, []);
+
   return (
-    <nav className="flex flex-wrap items-center justify-between px-4 py-2 mb-10  md:py-4 md:px-8">
+    <nav className="flex flex-wrap items-center justify-between px-4 py-2 mb-10 md:py-4 md:px-8">
       <Link to="/">
         <img src={logo} alt="Logo" className="w-auto object-cover" />
       </Link>
       <div className="flex items-center gap-x-8">
         <div className="hidden md:flex gap-x-8">
           {navitems.map((item) => (
-            <Link to={item.link} key={item.id}>
+            <Link to={item.link} key={item.id} className="relative nav-tooltip">
               <p className="body-regular font-light cursor-pointer hover:opacity-95 hover:scale-105">
                 {item.name}
               </p>
+              {item.name !== "Home" && (
+                <span className="absolute left-1/2 -bottom-8 transform -translate-x-1/2 w-max py-1 px-2 bg-primary-200 text-white text-xs rounded-md whitespace-nowrap opacity-0 tooltip-text transition-opacity duration-300">
+                  Comming Soon
+                </span>
+              )}
             </Link>
           ))}
         </div>

@@ -64,17 +64,17 @@ const SubmitEvent = () => {
         {({ isSubmitting }) => (
           <Form className="grid grid-cols-12 gap-8 w-full mt-8">
             <div className="col-span-12 md:col-span-6">
-              <div className="mb-8 w-[90%] lg:w-full">
+              <div className="mb-8  lg:w-full">
                 <Input placeholder="Ahmed Ali" label="Name" name="name" />
               </div>
-              <div className="mb-8 w-[90%] lg:w-full">
+              <div className="mb-8  lg:w-full">
                 <Input
                   placeholder="Event Type"
                   label="Event Type"
                   name="eventType"
                 />
               </div>
-              <div className="mb-8 w-[90%] lg:w-full">
+              <div className="mb-8 lg:w-full">
                 <Input
                   type="date"
                   placeholder="Select Dates"
@@ -82,7 +82,7 @@ const SubmitEvent = () => {
                   name="date"
                 />
               </div>
-              <div className="mb-8 w-[90%] lg:w-full">
+              <div className="mb-8  lg:w-full">
                 <Input
                   placeholder="Total or per person"
                   label="Budget"
@@ -91,28 +91,28 @@ const SubmitEvent = () => {
               </div>
             </div>
             <div className="col-span-12 md:col-span-6">
-              <div className="mb-8 w-[90%] lg:w-full">
+              <div className="mb-8  lg:w-full">
                 <Input
                   placeholder="ahmad@gmail.com"
                   label="Email"
                   name="email"
                 />
               </div>
-              <div className="mb-8 w-[90%] lg:w-full">
+              <div className="mb-8  lg:w-full">
                 <Input
                   placeholder="56"
                   label="No. of Guests"
                   name="totalGuests"
                 />
               </div>
-              <div className="mb-8 w-[90%] lg:w-full">
+              <div className="mb-8  lg:w-full">
                 <Input
                   placeholder="+920000000000"
                   label="Mobile Number"
                   name="phone"
                 />
               </div>
-              <div className="mb-8 w-[90%] lg:w-full">
+              <div className="mb-8  lg:w-full">
                 <Input
                   placeholder="Batman birthday theme"
                   label="Prefered Theme"
@@ -120,7 +120,7 @@ const SubmitEvent = () => {
                 />
               </div>
             </div>
-            <div className="col-span-12 mb-8 w-[90%] lg:w-full ">
+            <div className="col-span-12 mb-8  lg:w-full ">
               <label className="neue700" htmlFor="">
                 WRITE IN DETAILS ABOUT THE EVENT
               </label>
@@ -140,7 +140,7 @@ const SubmitEvent = () => {
                 className="text-red-500 futura500  "
               />
             </div>
-            <div className="col-span-12 flex justify-end mt-0 lg:mt-8">
+            <div className="col-span-12 flex md:justify-end mt-0 lg:mt-8">
               <div className="w-full md:w-1/2">
                 <Button
                   text="Subscribe"

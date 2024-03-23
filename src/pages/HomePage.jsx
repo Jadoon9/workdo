@@ -35,6 +35,7 @@ import Loader from "../components/common/Loader";
 import InputCommon from "../components/common/InputCommon";
 import { useEffect, useRef, useState } from "react";
 import { toast } from "react-toastify";
+import { GrNext, GrPrevious } from "react-icons/gr";
 
 const HomePage = () => {
   const navigate = useNavigate();
@@ -50,8 +51,8 @@ const HomePage = () => {
       }
     };
 
-    window.addEventListener("resize", updateSlidesPerView);
     updateSlidesPerView(); // Call initially to set correct slidesPerView
+
     return () => {
       window.removeEventListener("resize", updateSlidesPerView);
     };
@@ -90,6 +91,18 @@ const HomePage = () => {
         setNewsLetter("");
       },
     });
+
+  const goNext = () => {
+    if (swiperRef.current && swiperRef.current.swiper) {
+      swiperRef.current.swiper.slideNext();
+    }
+  };
+
+  const goPrev = () => {
+    if (swiperRef.current && swiperRef.current.swiper) {
+      swiperRef.current.swiper.slidePrev();
+    }
+  };
 
   console.log(dataEntertainment, "dataEntertainment");
   return (
@@ -343,7 +356,7 @@ const HomePage = () => {
             <img
               src={facebook}
               alt="facebook"
-              className="mr-2 w-10 lg:w-12 lg:mr-4 mb-2 lg:mb-0"
+              className="mr-2 w-9 lg:w-12 lg:mr-4 mb-2 lg:mb-0"
             />
             <img
               src={linkedIn}
@@ -365,7 +378,7 @@ const HomePage = () => {
           tristique nunc viverra vitae cursus massa. Eget at amet tristique
           ultrices auctor.
         </p>
-        <div className="my-12 ">
+        <div className="my-12 relative">
           {pendindFaq ? (
             <Loader />
           ) : (
@@ -373,17 +386,17 @@ const HomePage = () => {
               ref={swiperRef}
               slidesPerView={3}
               spaceBetween={10}
-              navigation
+              navigation={true}
               pagination={{ clickable: true }}
               autoplay={{ delay: 3000 }}
-              modules={[Autoplay, Navigation]}
-              className="mySwiper"
+              modules={[Navigation, Autoplay]}
+              className="mySwiper relative"
               loop
             >
               {dataFaq?.length > 0
                 ? dataFaq?.map?.((item, index) => (
                     <SwiperSlide key={index}>
-                      <div className="bg-white  rounded-[18px] border-4 border-primary-200 p-4 lg:p-8">
+                      <div className="bg-white h-[400px] overflow-scroll rounded-[18px] border-4 border-primary-200 p-4 lg:p-8">
                         <img src={faq} alt="" className="my-4" />
                         <h5 className="body-regular lg:body-regular1 font-extrabold text-primary-50">
                           {item?.question}
@@ -394,14 +407,16 @@ const HomePage = () => {
                       </div>
                     </SwiperSlide>
                   ))
-                : null
-                  // <h3 className="body-regular futura800 lg:body-regular1 ">
-                  //   No questions found.
-                  // </h3>
-              }
+                : null}
               {/* Default next and previous buttons */}
-              <div className="swiper-button-prev"></div>
-              <div className="swiper-button-next"></div>
+              {/* <div className="flex-between gap-x-3">
+                <div className="swiper-button-prev" onClick={goPrev}>
+                  <GrPrevious className="w-12 h-12 p-4 rounded-full bg-white" />
+                </div>
+                <div className="swiper-button-next" onClick={goNext}>
+                  <GrNext className="w-12 h-12 p-4 rounded-full bg-white" />
+                </div>
+              </div> */}
             </Swiper>
           )}
         </div>

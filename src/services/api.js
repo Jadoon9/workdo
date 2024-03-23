@@ -1,7 +1,8 @@
 import axios from "axios";
 
 const commonConfig = {
-  baseURL: "http://127.0.0.1:8000/api",
+  // baseURL: "http://127.0.0.1:8000/api",
+  baseURL: "https://tintosh123.pythonanywhere.com/api",
 };
 
 const authApi = axios.create({
