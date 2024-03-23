@@ -257,7 +257,7 @@ const HomePage = () => {
                   alt=""
                   className=""
                 />
-                <h2 className="h8 lg:h5 lg:text-nowrap font-medium  uppercase my-6 neue700  text-primary-50">
+                <h2 className="h8 lg:h5 text-wrap font-medium  uppercase my-6 neue700  text-primary-50">
                   {item}
                 </h2>
               </div>

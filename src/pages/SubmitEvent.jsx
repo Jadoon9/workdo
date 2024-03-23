@@ -17,7 +17,7 @@ const SubmitEvent = () => {
   });
 
   return (
-    <div className=" paddingXS lg:px-36   my-12">
+    <div className=" paddingXS lg:px-32   my-12">
       <h2 className="h2-55 md:h2 lg:h1-bold neue800">
         Submit <br /> event <br /> details
       </h2>
