@@ -1,7 +1,13 @@
 import * as Yup from "yup";
 
 export const validationSchema = Yup.object().shape({
-  name: Yup.string().trim().required("Full name is required"),
+  name: Yup.string()
+    .trim()
+    .required("Full name is required")
+    .matches(
+      /^[a-zA-Z0-9\s]+$/,
+      "Full name should contain only letters and numbers"
+    ),
   // .test("is-not-whitespace", "Full name cannot be empty", (value) => {
   //   // Check if the input consists only of whitespace characters
   //   return value.trim().length > 0;
@@ -22,8 +28,11 @@ export const validationSchema = Yup.object().shape({
     .positive("Guests must be positive"),
   date: Yup.date()
     .required("Date is required")
-    .min(new Date(), "Date cannot be before the current date"),
-  phone: Yup.string().required("Phone number is required"),
+    .min(
+      new Date(new Date().setHours(0, 0, 0, 0)),
+      "Date cannot be before the current date"
+    ),
+  phone: Yup.string().required("Mobile number is required"),
   budget: Yup.string()
     .trim()
     .required("Budget is required")
