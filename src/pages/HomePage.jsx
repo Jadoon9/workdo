@@ -395,7 +395,6 @@ const HomePage = () => {
               // autoplay={{ delay: 3000 }}
               modules={[Navigation, Autoplay]}
               className="mySwiper relative"
-              loop
             >
               {dataFaq?.length > 0
                 ? dataFaq?.map?.((item, index) => (

@@ -34,7 +34,7 @@ const Input = ({
       <input
         className={`w-full px-6 lg:px-12 py-3 ${
           borderWhite ? "bg-white " : "bg-secondary-200"
-        } border-2 rounded-[60px] outline-none border-primary-200 hover:opacity-85 text-gray-100`}
+        } border-2 rounded-[60px] outline-none border-primary-200 hover:opacity-85 `}
         type={type}
         value={value}
         onKeyDown={onKeyDown}
