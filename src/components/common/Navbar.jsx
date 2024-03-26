@@ -8,17 +8,17 @@ const navitems = [
   {
     id: 2,
     name: "Experiences",
-    link: "/shop-now",
+    link: "/",
   },
   {
     id: 3,
     name: "How it works",
-    link: "/minutes-details",
+    link: "/",
   },
   {
     id: 4,
     name: "Minutes Blog",
-    link: "/faq",
+    link: "/",
   },
 ];
 
