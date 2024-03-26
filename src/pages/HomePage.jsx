@@ -110,7 +110,7 @@ const HomePage = () => {
 
   console.log(dataEntertainment, "dataEntertainment");
   return (
-    <div className="mb-8">
+    <div className="pb-8">
       <section className="paddingXS !lg:paddingX grid grid-cols-1 lg:grid-cols-2 my-4 lg:my-10 items-center">
         <div className="gap-y-2 my-8  lg:my-28 text-center lg:text-left">
           <h1 className="h2-55 md:h2 lg:h1-bold font-[800] text-primary-200">
@@ -351,7 +351,7 @@ const HomePage = () => {
             Follow US On <br />
             social media
           </h2>
-          <div className="flex items-center justify-start flex-1 flex-row w-full ">
+          <div className="flex items-center gap-x-7 justify-start flex-1 flex-row w-full ">
             <img
               src={InstaIcon}
               alt="InstaIcon"
@@ -392,7 +392,7 @@ const HomePage = () => {
               spaceBetween={10}
               navigation={true}
               pagination={{ clickable: true }}
-              autoplay={{ delay: 3000 }}
+              // autoplay={{ delay: 3000 }}
               modules={[Navigation, Autoplay]}
               className="mySwiper relative"
               loop
@@ -413,14 +413,20 @@ const HomePage = () => {
                   ))
                 : null}
               {/* Default next and previous buttons */}
-              {/* <div className="flex-between gap-x-3">
-                <div className="swiper-button-prev" onClick={goPrev}>
+              <div className="flex-between gap-x-3 absolute z-50 top-1/2 left-0 w-full">
+                <div
+                  className="swiper-button-prev rounded-full cursor-pointer shadow"
+                  onClick={goPrev}
+                >
                   <GrPrevious className="w-12 h-12 p-4 rounded-full bg-white" />
                 </div>
-                <div className="swiper-button-next" onClick={goNext}>
+                <div
+                  className="swiper-button-next rounded-full shadow cursor-pointer "
+                  onClick={goNext}
+                >
                   <GrNext className="w-12 h-12 p-4 rounded-full bg-white" />
                 </div>
-              </div> */}
+              </div>
             </Swiper>
           )}
         </div>

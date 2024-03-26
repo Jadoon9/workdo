@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
 import { useField } from "formik";
 import Button from "./Button";
+import { useRef } from "react";
 
 const Input = ({
   type,
@@ -19,6 +20,7 @@ const Input = ({
   icon,
 }) => {
   const [field, meta] = useField(name);
+
   return (
     <div className="relative my-4">
       {label && (
@@ -32,8 +34,7 @@ const Input = ({
       <input
         className={`w-full px-6 lg:px-12 py-3 ${
           borderWhite ? "bg-white " : "bg-secondary-200"
-        } border-2 rounded-[60px] outline-none border-primary-200 hover:opacity-85`}
-        style={{ "::placeholder": { color: "#0C190E" } }}
+        } border-2 rounded-[60px] outline-none border-primary-200 hover:opacity-85 text-gray-100`}
         type={type}
         value={value}
         onKeyDown={onKeyDown}

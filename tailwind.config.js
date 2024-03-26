@@ -28,6 +28,7 @@ export default {
         },
         gray: {
           50: "#5F5F6E",
+          100: "#9EA587",
         },
       },
       fontFamily: {},

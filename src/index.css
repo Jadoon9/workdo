@@ -96,22 +96,22 @@
 /* CSS */
 ::-webkit-input-placeholder {
   /* WebKit browsers (Chrome, Safari) */
-  color: #0c190e !important; /* Change to your desired color */
+  color: #9ea587 !important; /* Change to your desired color */
 }
 
 :-moz-placeholder {
   /* Mozilla Firefox 4 to 18 */
-  color: #0c190e !important; /* Change to your desired color */
+  color: #9ea587 !important; /* Change to your desired color */
 }
 
 ::-moz-placeholder {
   /* Mozilla Firefox 19+ */
-  color: #0c190e !important; /* Change to your desired color */
+  color: #9ea587 !important; /* Change to your desired color */
 }
 
 :-ms-input-placeholder {
   /* Internet Explorer 10+ */
-  color: #0c190e !important; /* Change to your desired color */
+  color: #9ea587 !important; /* Change to your desired color */
 }
 
 ::-webkit-scrollbar {

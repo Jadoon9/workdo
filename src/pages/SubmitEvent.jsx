@@ -6,8 +6,10 @@ import { useMutation } from "@tanstack/react-query";
 import { toast } from "react-toastify";
 import { addEvent } from "../services/actions/events";
 import DatePicker from "../components/common/DatePicker";
+import { useRef } from "react";
 
 const SubmitEvent = () => {
+  const ref = useRef();
   const { mutate, isPending: pendingNewsLetter } = useMutation({
     mutationFn: addEvent,
     onError: (data) => {
@@ -17,7 +19,7 @@ const SubmitEvent = () => {
   });
 
   return (
-    <div className=" paddingXS lg:px-32   my-12">
+    <div className=" paddingXS lg:px-32   mt-12">
       <h2 className="h2-55 md:h2 lg:h1-bold neue800">
         Submit <br /> event <br /> details
       </h2>
@@ -63,12 +65,12 @@ const SubmitEvent = () => {
         }}
       >
         {({ isSubmitting }) => (
-          <Form className="grid grid-cols-12 gap-8 w-full mt-8">
-            <div className="col-span-12 md:col-span-6">
-              <div className="mb-8   w-[98%] lg:w-full">
+          <Form className="grid grid-cols-12 gap-8 w-full my-8">
+            <div className="col-span-12 md:col-span-6  flex flex-col justify-center">
+              <div className="   w-[98%] lg:w-full">
                 <Input placeholder="Ahmed Ali" label="Full Name" name="name" />
               </div>
-              <div className="mb-8  w-[98%]  lg:w-full">
+              <div className="  w-[98%]  lg:w-full">
                 <Input
                   placeholder="Event Type"
                   label="Event Type"
@@ -76,31 +78,40 @@ const SubmitEvent = () => {
                   type="text"
                 />
               </div>
-              <div className="mb-8  w-[98%] lg:w-full">
+              <div className="w-[98%] lg:w-full">
                 <Input
                   type="date"
                   placeholder="Select Dates"
                   label="Preferred Dates"
                   name="date"
+                  onFocus={() => (ref.current.type = "date")}
+                  onBlur={() => (ref.current.type = "date")}
+                  ref={ref}
                 />
               </div>
-              <div className="mb-8    w-[98%] lg:w-full">
+              <div className="w-[98%] lg:w-full">
                 <Input
+                  type="number"
                   placeholder="Total or per person"
                   label="Budget"
                   name="budget"
+                  onKeyDown={(e) => {
+                    if (e.key === "." || e.key === "e") {
+                      e.preventDefault();
+                    }
+                  }}
                 />
               </div>
             </div>
-            <div className="col-span-12 md:col-span-6">
-              <div className="mb-8 w-[98%] md:w-full">
+            <div className="col-span-12 md:col-span-6 flex flex-col justify-center">
+              <div className="w-[98%] md:w-full">
                 <Input
                   placeholder="ahmad@gmail.com"
                   label="Email"
                   name="email"
                 />
               </div>
-              <div className="mb-8  w-[98%]  lg:w-full">
+              <div className="w-[98%]  lg:w-full">
                 <Input
                   type="number"
                   placeholder="56"
@@ -113,7 +124,7 @@ const SubmitEvent = () => {
                   }}
                 />
               </div>
-              <div className="mb-8  w-[98%]  lg:w-full">
+              <div className="w-[98%]  lg:w-full">
                 <Input
                   type="number"
                   placeholder="+920000000000"
@@ -126,7 +137,7 @@ const SubmitEvent = () => {
                   }}
                 />
               </div>
-              <div className="mb-8  w-[98%]  lg:w-full">
+              <div className="w-[98%]  lg:w-full">
                 <Input
                   placeholder="Batman Birthday Theme"
                   label="Prefered Theme"
@@ -134,7 +145,7 @@ const SubmitEvent = () => {
                 />
               </div>
             </div>
-            <div className="col-span-12 mb-8   w-[98%] lg:w-full ">
+            <div className="col-span-12 mb-8   w-[98%] lg:w-full  flex flex-col justify-center">
               <label className="neue700" htmlFor="">
                 WRITE IN DETAILS ABOUT THE EVENT
               </label>
