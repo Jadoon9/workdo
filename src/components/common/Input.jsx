@@ -22,17 +22,17 @@ const Input = ({
   const [field, meta] = useField(name);
 
   return (
-    <div className="relative my-4">
+    <div className="relative my-6">
       {label && (
         <label
           htmlFor=""
-          className="body-medium uppercase mb-4 md:mb-6 neue700 text-primary-200 my-8 md:my-4"
+          className="body-medium uppercase neue700 text-primary-200 "
         >
           {label}
         </label>
       )}
       <input
-        className={`w-full px-6 lg:px-12 py-3 ${
+        className={`w-full px-6 lg:px-12 py-2 ${
           borderWhite ? "bg-white " : "bg-secondary-200"
         } border-2 rounded-[60px] outline-none border-primary-200 hover:opacity-85 `}
         type={type}

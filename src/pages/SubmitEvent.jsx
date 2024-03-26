@@ -66,7 +66,7 @@ const SubmitEvent = () => {
       >
         {({ isSubmitting }) => (
           <Form className="grid grid-cols-12 gap-3 lg:gap-8  w-full my-8">
-            <div className="col-span-12 md:col-span-6  flex flex-col justify-center">
+            <div className="col-span-12 md:col-span-6   flex flex-col justify-center">
               <div className="   w-[98%] lg:w-full">
                 <Input placeholder="Ahmed Ali" label="Full Name" name="name" />
               </div>
