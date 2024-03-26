@@ -32,7 +32,7 @@ export const validationSchema = Yup.object().shape({
   phone: Yup.string().required("Mobile number is required"),
   budget: Yup.number()
     .required("Budget is required")
-    .max(500, "Budget cannot exceed 10000")
+    .max(10000, "Budget cannot exceed 10000")
     .positive("Budget must be positive"),
 
   eventTheme: Yup.string()
