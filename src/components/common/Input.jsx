@@ -22,7 +22,7 @@ const Input = ({
   const [field, meta] = useField(name);
 
   return (
-    <div className="relative my-6">
+    <div className="relative my-4">
       {label && (
         <label
           htmlFor=""
