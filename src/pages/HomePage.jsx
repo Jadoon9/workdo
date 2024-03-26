@@ -255,7 +255,7 @@ const HomePage = () => {
                     index == 0 ? users2 : index === 1 ? celeberate : heartUser
                   }
                   alt=""
-                  className=""
+                  className="w-12 h-12"
                 />
                 <h2 className="h8 lg:h5 text-wrap font-medium  uppercase my-6 neue700  text-primary-50">
                   {item}
