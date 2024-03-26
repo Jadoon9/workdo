@@ -1,30 +1,16 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import logo from "../../assets/landingpage/logo.svg";
 import Button from "./Button";
 import { useEffect } from "react";
 
 const navitems = [
   { id: 1, name: "Home", link: "/" },
-  {
-    id: 2,
-    name: "Experiences",
-    link: "#",
-  },
-  {
-    id: 3,
-    name: "How it works",
-    link: "#",
-  },
-  {
-    id: 4,
-    name: "Minutes Blog",
-    link: "#",
-  },
+  { id: 2, name: "Experiences", link: "#" },
+  { id: 3, name: "How it works", link: "#" },
+  { id: 4, name: "Minutes Blog", link: "#" },
 ];
 
 const Navbar = () => {
-  const navigate = useNavigate();
-
   useEffect(() => {
     // Initialize tooltips when component mounts
     const tooltips = document.querySelectorAll(".nav-tooltip");
@@ -43,7 +29,7 @@ const Navbar = () => {
       <Link to="/">
         <img src={logo} alt="Logo" className="w-auto object-cover" />
       </Link>
-      <div className="flex items-center gap-x-8">
+      <div className="flex items-center gap-x-8 relative">
         <div className="hidden md:flex gap-x-8">
           {navitems.map((item) => (
             <Link to={item.link} key={item.id} className="relative nav-tooltip">
@@ -58,14 +44,19 @@ const Navbar = () => {
             </Link>
           ))}
         </div>
-        <Button
-          text="LOG IN"
-          bgColor="bg-primary-200"
-          textColor="text-white"
-          paddingX="6"
-          paddingY="2"
-          // onClick={() => navigate("/login")}
-        />
+        <div className="nav-tooltip">
+          <Button
+            text="LOG IN"
+            bgColor="bg-primary-200"
+            textColor="text-white"
+            paddingX="6"
+            paddingY="2"
+            tootip=".nav-tooltip"
+          />
+          <span className="absolute left-[50%] md:left-[90%] bottom-[-30px] transform -translate-x-1/2 w-max py-1 px-2 bg-primary-200 text-white text-xs rounded-md whitespace-nowrap opacity-0 tooltip-text transition-opacity duration-300">
+            Coming Soon
+          </span>
+        </div>
       </div>
     </nav>
   );
