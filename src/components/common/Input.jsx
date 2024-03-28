@@ -31,9 +31,9 @@ const Input = ({
           {label}
         </label>
       )}
-      <div className="relative">
+      <div className="relative !w-full">
         <input
-          className={`w-full px-6 lg:px-12 py-2 ${
+          className={`!w-full px-6 lg:px-12 py-2 ${
             borderWhite ? "bg-white " : "bg-secondary-200"
           } border-2 rounded-[60px] outline-none border-primary-200 hover:opacity-85 `}
           type={type}
