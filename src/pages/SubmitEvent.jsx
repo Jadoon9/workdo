@@ -82,7 +82,7 @@ const SubmitEvent = () => {
                 <Input
                   type="date"
                   placeholder="Select Dates"
-                  label="Preferred Dates"
+                  label="Preferred Date"
                   name="date"
                   onFocus={() => (ref.current.type = "date")}
                   onBlur={() => (ref.current.type = "date")}
@@ -168,7 +168,7 @@ const SubmitEvent = () => {
             <div className="col-span-12 flex md:justify-end mt-0 lg:mt-8">
               <div className="w-full md:w-[45%]">
                 <Button
-                  text="Subscribe"
+                  text="Submit"
                   bgColor="bg-primary-200"
                   textColor="text-white"
                   width="w-full"
