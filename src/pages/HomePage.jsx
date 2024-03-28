@@ -45,9 +45,10 @@ const HomePage = () => {
     const updateSlidesPerView = () => {
       const screenWidth = window.innerWidth;
       const slidesPerView = screenWidth < 768 ? 1 : 3;
+
       if (swiperRef.current) {
         swiperRef.current.swiper.params.slidesPerView = slidesPerView;
-        swiperRef.current.swiper.update();
+        swiperRef.current.swiper.update(); // Update swiper instance
       }
     };
 
