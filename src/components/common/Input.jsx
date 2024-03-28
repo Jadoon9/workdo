@@ -26,24 +26,31 @@ const Input = ({
       {label && (
         <label
           htmlFor=""
-          className="body-medium uppercase neue700 text-primary-200 "
+          className="block body-medium uppercase neue700 text-primary-200"
         >
           {label}
         </label>
       )}
-      <input
-        className={`w-full px-6 lg:px-12 py-2 ${
-          borderWhite ? "bg-white " : "bg-secondary-200"
-        } border-2 rounded-[60px] outline-none border-primary-200 hover:opacity-85 `}
-        type={type}
-        value={value}
-        onKeyDown={onKeyDown}
-        placeholder={placeholder}
-        onChange={handleInputChange}
-        {...field}
-      />
+      <div className="relative">
+        <input
+          className={`w-full px-6 lg:px-12 py-2 ${
+            borderWhite ? "bg-white " : "bg-secondary-200"
+          } border-2 rounded-[60px] outline-none border-primary-200 hover:opacity-85 `}
+          type={type}
+          value={value}
+          onKeyDown={onKeyDown}
+          placeholder={placeholder}
+          onChange={handleInputChange}
+          {...field}
+        />
+        {showIcon && (
+          <div className="absolute top-2 right-8 h-full flex items-center">
+            <img src={icon} alt="" />
+          </div>
+        )}
+      </div>
       {renderButton && (
-        <div className="absolute top-0 right-2 h-full flex items-center">
+        <div className="mt-2">
           <Button
             text="Subscribe"
             width="auto"
@@ -54,12 +61,6 @@ const Input = ({
           />
         </div>
       )}
-      {showIcon && (
-        <div className="absolute top-2 right-8 h-full flex items-center">
-          <img src={icon} alt="" />
-        </div>
-      )}
-
       {meta?.touched && meta?.error && (
         <p className="text-red-700 futura500 body-medium">
           {meta?.error || "\u00A0"}
