@@ -22,7 +22,7 @@ const Input = ({
   const [field, meta] = useField(name);
 
   return (
-    <div className="relative my-4">
+    <div className="relative my-4" style={{ width: "100%" }}>
       {label && (
         <label
           htmlFor=""
@@ -31,7 +31,7 @@ const Input = ({
           {label}
         </label>
       )}
-      <div className="relative !w-full">
+      <div className="relative !w-full" style={{ width: "100%" }}>
         <input
           className={`!w-full px-6 lg:px-12 py-2 ${
             borderWhite ? "bg-white " : "bg-secondary-200"
