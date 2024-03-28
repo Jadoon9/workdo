@@ -42,6 +42,7 @@ const Input = ({
           placeholder={placeholder}
           onChange={handleInputChange}
           {...field}
+          style={{ width: "100%" }} // Ensure the input fills the container's width
         />
         {showIcon && (
           <div className="absolute top-2 right-8 h-full flex items-center">
