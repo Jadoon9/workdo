@@ -4,7 +4,7 @@ import { Autoplay, Navigation, Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
 import { useNavigate } from "react-router-dom";
-import hero from "../assets/landingpage/hero.svg";
+import hero from "../assets/hero_new.svg";
 import Button from "../components/common/Button";
 import workplace from "../assets/landingpage/workplace.svg";
 import ratings from "../assets/landingpage/Rating.svg";
