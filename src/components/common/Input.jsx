@@ -18,6 +18,7 @@ const Input = ({
   showIcon,
   pending,
   icon,
+  showStartIcon,
 }) => {
   const [field, meta] = useField(name);
 
@@ -31,7 +32,13 @@ const Input = ({
           {label}
         </label>
       )}
+
       <div className="relative !w-full" style={{ width: "100%" }}>
+        {showStartIcon && (
+          <div className="absolute top-0 left-8 text-black h-full flex items-center">
+            £
+          </div>
+        )}
         <input
           className={`!w-full px-6 lg:px-12 py-2 ${
             borderWhite ? "bg-white " : "bg-secondary-200"

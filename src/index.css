@@ -147,6 +147,7 @@ p,
 a {
   font-family: "futura";
   font-weight: normal;
+  line-height: 1.5 !important;
 }
 
 .swiper-pagination-bullet {
@@ -154,11 +155,11 @@ a {
 }
 
 .paddingX {
-  padding-inline: 60px;
+  padding-inline: 100px;
 }
 
 .paddingXS {
-  padding-inline: 24px;
+  padding-inline: 48px;
 }
 
 .swiper {
@@ -245,7 +246,7 @@ a {
   }
 
   .body-regular {
-    @apply text-[19px] leading-none;
+    @apply text-[20px] leading-none;
   }
 
   .body-18 {

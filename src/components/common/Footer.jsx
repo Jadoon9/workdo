@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import whiteLogo from "../../assets/landingpage/logo-white.svg";
 import Input from "./Input";
 import insta from "../../assets/landingpage/insta.svg";
@@ -7,6 +7,9 @@ import linkedin from "../../assets/landingpage/linkedin.svg";
 import inbox from "../../assets/landingpage/inbox.svg";
 import { Link, useNavigate } from "react-router-dom";
 import InputCommon from "./InputCommon";
+import { useMutation } from "@tanstack/react-query";
+import { toast } from "react-toastify";
+import { addNewsletter } from "../../services/actions/landing";
 
 const links = [
   "Home",
@@ -18,7 +21,20 @@ const links = [
 ];
 
 const Footer = () => {
-  const navigate = useNavigate();
+  const [newsLetter, setNewsLetter] = useState("");
+  const { mutate: mutateNewsLetter, isPending: pendingNewsLetter } =
+    useMutation({
+      mutationFn: addNewsletter,
+      onError: (data) => {
+        console.log(data, "jkjkj");
+        toast.error(data?.response?.data?.email[0]);
+      },
+      onSuccess: () => {
+        toast.success("Successfully Subscribed");
+        setNewsLetter("");
+      },
+    });
+
   return (
     <footer className="bg-primary-200 w-full paddingXS lg:paddingX py-12 lg:py-16">
       <div className="grid grid-cols-1 md:grid-cols-12 gap-y-8 md:gap-y-12">
@@ -50,17 +66,27 @@ const Footer = () => {
             us every month with our newsletter
           </p>
           <div className="w-full">
-            <InputCommon placeholder="Enter Your Email" renderButton />
+            <InputCommon
+              placeholder="Enter Your Email"
+              renderButton
+              handleInputChange={(e) => {
+                setNewsLetter(e.target.value);
+              }}
+              value={newsLetter}
+              pending={pendingNewsLetter}
+              buttonOnClick={() => mutateNewsLetter({ email: newsLetter })}
+              renderButton
+            />
           </div>
         </div>
       </div>
 
       <hr className="my-8 border-1 border-secondary-200" />
       <div className="flex flex-col md:flex-row md:items-center justify-between">
-        <p className="text-center md:text-left body-regular lg:body-regular1  text-secondary-200">
+        <p className="text-start md:text-left body-regular lg:body-regular1  text-secondary-200">
           Copyright of Workdo Ltd. 2024, All Rights Reserved.
         </p>
-        <div className="flex gap-4 justify-center md:justify-end mt-4 md:mt-0">
+        <div className="flex gap-4 justify-start md:justify-end mt-4 md:mt-0">
           <img src={insta} alt="" className="w-10 h-10" />
           <img src={fb} alt="" className="w-8 h-10" />
           <img src={linkedin} alt="" className="w-10 h-10" />

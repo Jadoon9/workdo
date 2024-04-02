@@ -7,6 +7,7 @@ import { toast } from "react-toastify";
 import { addEvent } from "../services/actions/events";
 import DatePicker from "../components/common/DatePicker";
 import { useRef } from "react";
+import { FaEuroSign } from "react-icons/fa";
 
 const SubmitEvent = () => {
   const ref = useRef();
@@ -91,6 +92,7 @@ const SubmitEvent = () => {
               </div>
               <div className="w-[98%] lg:w-full">
                 <Input
+                  showStartIcon
                   type="number"
                   placeholder="Total or per person"
                   label="Budget"
@@ -139,8 +141,8 @@ const SubmitEvent = () => {
               </div>
               <div className="w-[98%]  lg:w-full">
                 <Input
-                  placeholder="Batman Birthday Theme"
-                  label="Prefered Theme"
+                  placeholder="Client Entertainment"
+                  label="Occasion"
                   name="eventTheme"
                 />
               </div>
@@ -166,7 +168,7 @@ const SubmitEvent = () => {
               />
             </div>
             <div className="col-span-12 flex md:justify-end mt-0 lg:mt-8">
-              <div className="w-full md:w-[45%]">
+              <div className="w-full md:w-[45%] mb-14">
                 <Button
                   text="Submit"
                   bgColor="bg-primary-200"

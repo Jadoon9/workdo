@@ -3,7 +3,7 @@ import { Autoplay, Navigation, Pagination } from "swiper/modules";
 
 import "swiper/css";
 import "swiper/css/pagination";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import hero from "../assets/hero_new.svg";
 import Button from "../components/common/Button";
 import workplace from "../assets/landingpage/workplace.svg";
@@ -109,6 +109,11 @@ const HomePage = () => {
     }
   };
 
+  const handleListBusiness = () => {
+    // Navigate to the mailto URL
+    window.location.href = "mailto:emma@workdo.co.uk";
+  };
+
   console.log(dataEntertainment, "dataEntertainment");
   return (
     <div className="pb-8">
@@ -117,7 +122,7 @@ const HomePage = () => {
           <h1 className="h2-55 md:h2 lg:h1-bold font-[800] text-primary-200">
             Work events <br /> done right.
           </h1>
-          <div className="flex flex-col lg:flex-row gap-3 my-6 ">
+          <div className="flex flex-col w-3/4 lg:w-full mx-auto lg:flex-row gap-3 my-6 ">
             <Button
               text="SUBMIT EVENT DETAILS"
               bgColor="bg-primary-200"
@@ -127,20 +132,26 @@ const HomePage = () => {
               onClick={() => navigate("/submit-event")}
               smallText
             />
-            <Button
+            <a
+              className="px-6 py-2 border-2 text-primary-200 border-primary-200 uppercase hover:opacity-85 relative font-bold body-medium lg:body-18 hover:scale-105 rounded-[45px]"
+              href="mailto:emma@workdo.co.uk"
+            >
+              LIST YOUR BUSINESS
+            </a>
+            {/* <Button
               text="LIST YOUR BUSINESS"
               textColor="primary-200"
               paddingX="6"
               paddingY="2"
               smallText
-              // onClick={() => navigate("/browse-events")}
-            />
+              onClick={handleListBusiness}
+            /> */}
           </div>
         </div>
         <div className="flex-center order-first lg:order-none lg:flex-none transition-opacity duration-1000">
           <img
             src={hero}
-            className="w-auto object-contain lg:opacity-100"
+            className="w-auto h-auto object-contain "
             alt="hero"
           />
         </div>
@@ -246,7 +257,7 @@ const HomePage = () => {
           At workdo <br /> we believe
         </h2>
       </div>
-      <section className="paddingXS lg:paddingX  grid grid-cols-1 lg:grid-cols-3 gap-8 my-10 lg:my-14">
+      <section className="paddingXS lg:paddingX  text-center lg:text-start grid grid-cols-1 lg:grid-cols-3 gap-8 my-10 lg:my-14">
         {["Team Experience", "Entertainment", "Workplace Wellbeing"].map(
           (item, index) => (
             <div key={index}>
@@ -256,7 +267,7 @@ const HomePage = () => {
                     index == 0 ? users2 : index === 1 ? celeberate : heartUser
                   }
                   alt=""
-                  className="w-12 h-12"
+                  className="w-12 h-12 mx-auto lg:mx-0"
                 />
                 <h2 className="h8 lg:h5 text-wrap font-medium  uppercase my-6 neue700  text-primary-50">
                   {item}
@@ -300,12 +311,18 @@ const HomePage = () => {
             </div>
           ))}
           <div className="ml-0 lg:ml-16 mt-16">
-            <Button
+            <a
+              className="px-6 py-2 border-2 text-white border-white text-center !w-full uppercase hover:opacity-85 block font-bold body-medium lg:body-18 hover:scale-105 rounded-[45px]"
+              href="mailto:emma@workdo.co.uk"
+            >
+              List your business
+            </a>
+            {/* <Button
               text="List your business"
               width="w-full"
               textColor="text-white"
               borderWhite
-            />
+            /> */}
           </div>
         </div>
         <div className="col-span-1 lg:col-span-5 lg:pr-10 lg:h-[600px]">
@@ -347,32 +364,32 @@ const HomePage = () => {
       </section>
 
       <section className="bg-primary-100">
-        <div className=" paddingXS lg:paddingX  flex flex-col lg:flex-row  ">
-          <h2 className="h3 md:h2 text-secondary-200 neue800 text-start py-8 w-full lg:w-1/2">
-            Follow US On <br />
+        <div className="paddingXS lg:paddingX  flex flex-col gap-6 py-10 md:flex-row  ">
+          <h2 className="h3 md:h2 text-secondary-200 neue800 text-start w-full md:w-1/2">
+            Follow us on <br />
             social media
           </h2>
-          <div className="flex items-center gap-x-7 justify-start flex-1 flex-row w-full ">
+          <div className="flex items-center gap-x-7 justify-start flex-1 w-full ">
             <img
               src={InstaIcon}
               alt="InstaIcon"
-              className="mr-2 w-12 lg:w-16 lg:mr-4 mb-2 lg:mb-0"
+              className=" w-12 md:w-16 md:mr-4  md:mb-0"
             />
             <img
               src={facebook}
               alt="facebook"
-              className="mr-2 w-9 lg:w-12 lg:mr-4 mb-2 lg:mb-0"
+              className=" w-10 md:w-12 md:mr-4  md:mb-0"
             />
             <img
               src={linkedIn}
               alt="linkedIn"
-              className="mr-2 w-12 lg:w-16 lg:mr-4 mb-2 lg:mb-0"
+              className=" w-12 md:w-16 md:mr-4  md:mb-0"
             />
           </div>
         </div>
       </section>
 
-      <section className="paddingXS lg:paddingX  lg:p-8 my-12">
+      <section className="paddingXS lg:paddingX  lg:p-8 my-10">
         <h2 className="text-primary-200 h3 md:h2  neue800 pt-10 pb-2">
           Frequently asked <br />
           questions
@@ -400,7 +417,7 @@ const HomePage = () => {
               {dataFaq?.length > 0
                 ? dataFaq?.map?.((item, index) => (
                     <SwiperSlide key={index}>
-                      <div className="bg-white h-[400px] overflow-scroll rounded-[18px] border-4 border-primary-200 p-4 lg:p-8">
+                      <div className="bg-white h-[300px] overflow-scroll rounded-[18px] border-4 border-primary-200 px-8 py-2">
                         <img src={faq} alt="" className="my-4" />
                         <h5 className="body-regular lg:body-regular1 font-extrabold text-primary-50">
                           {item?.question}

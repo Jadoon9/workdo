@@ -7,7 +7,7 @@ const navitems = [
   { id: 1, name: "Home", link: "/" },
   { id: 2, name: "Experiences", link: "#" },
   { id: 3, name: "How it works", link: "#" },
-  { id: 4, name: "Minutes Blog", link: "#" },
+  { id: 4, name: "Blog", link: "#" },
 ];
 
 const Navbar = () => {
