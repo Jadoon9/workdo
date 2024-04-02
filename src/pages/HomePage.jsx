@@ -122,7 +122,7 @@ const HomePage = () => {
           <h1 className="h2-55 md:h2 lg:h1-bold font-[800] text-primary-200">
             Work events <br /> done right.
           </h1>
-          <div className="flex flex-col w-3/4 lg:w-full mx-auto lg:flex-row gap-3 my-6 ">
+          <div className="flex flex-col w-[80%] lg:w-full mx-auto lg:flex-row gap-3 my-6 ">
             <Button
               text="SUBMIT EVENT DETAILS"
               bgColor="bg-primary-200"
@@ -133,7 +133,7 @@ const HomePage = () => {
               smallText
             />
             <a
-              className="px-6 py-2 border-2 text-primary-200 border-primary-200 uppercase hover:opacity-85 relative font-bold body-medium lg:body-18 hover:scale-105 rounded-[45px]"
+              className="px-8 py-2 border-2 text-center text-primary-200 border-primary-200 uppercase hover:opacity-85 relative font-bold body-medium lg:body-18 hover:scale-105 rounded-[45px]"
               href="mailto:emma@workdo.co.uk"
             >
               LIST YOUR BUSINESS
