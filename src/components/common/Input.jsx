@@ -2,6 +2,7 @@
 import { useField } from "formik";
 import Button from "./Button";
 import { useRef } from "react";
+import { FaPoundSign } from "react-icons/fa";
 
 const Input = ({
   type,
@@ -35,14 +36,15 @@ const Input = ({
 
       <div className="relative !w-full" style={{ width: "100%" }}>
         {showStartIcon && (
-          <div className="absolute top-0 left-8 text-black h-full flex items-center">
-            £
+          <div className="absolute top-0 left-3 lg:left-8 text-black h-full flex items-center">
+            {/* £ */}
+            <FaPoundSign />
           </div>
         )}
         <input
-          className={`!w-full px-6 lg:px-12 py-2 ${
+          className={`!w-full px-8 lg:px-12 py-2 ${
             borderWhite ? "bg-white " : "bg-secondary-200"
-          } border-2 rounded-[60px] outline-none border-primary-200 hover:opacity-85 `}
+          } border-2 rounded-[60px] outline-none border-primary-200  `}
           type={type}
           value={value}
           onKeyDown={onKeyDown}

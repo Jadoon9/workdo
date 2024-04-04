@@ -370,21 +370,27 @@ const HomePage = () => {
             social media
           </h2>
           <div className="flex items-center gap-x-7 justify-start flex-1 w-full ">
-            <img
-              src={InstaIcon}
-              alt="InstaIcon"
-              className=" w-12 md:w-16 md:mr-4  md:mb-0"
-            />
-            <img
-              src={facebook}
-              alt="facebook"
-              className=" w-10 md:w-12 md:mr-4  md:mb-0"
-            />
-            <img
-              src={linkedIn}
-              alt="linkedIn"
-              className=" w-12 md:w-16 md:mr-4  md:mb-0"
-            />
+            <a href="https://www.instagram.com/workdo.co.uk/" target="_blank">
+              <img
+                src={InstaIcon}
+                alt="InstaIcon"
+                className=" w-12 md:w-16 md:mr-4  md:mb-0"
+              />
+            </a>
+            <a href="https://www.facebook.com/workdo.co.uk" target="_blank">
+              <img
+                src={facebook}
+                alt="facebook"
+                className=" w-10 md:w-12 md:mr-4  md:mb-0"
+              />
+            </a>
+            <a href="https://www.linkedin.com/company/workdouk" target="_blank">
+              <img
+                src={linkedIn}
+                alt="linkedIn"
+                className=" w-12 md:w-16 md:mr-4  md:mb-0"
+              />
+            </a>
           </div>
         </div>
       </section>

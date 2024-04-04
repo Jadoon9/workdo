@@ -87,10 +87,18 @@ const Footer = () => {
           Copyright of Workdo Ltd. 2024, All Rights Reserved.
         </p>
         <div className="flex gap-4 justify-start md:justify-end mt-4 md:mt-0">
-          <img src={insta} alt="" className="w-10 h-10" />
-          <img src={fb} alt="" className="w-8 h-10" />
-          <img src={linkedin} alt="" className="w-10 h-10" />
-          <img src={inbox} alt="" className="w-10 h-10" />
+          <a href="https://www.instagram.com/workdo.co.uk/" target="_blank">
+            <img src={insta} alt="" className="w-10 h-10" />
+          </a>
+          <a href="https://www.facebook.com/workdo.co.uk" target="_blank">
+            <img src={fb} alt="" className="w-8 h-10" />
+          </a>
+          <a href="https://www.linkedin.com/company/workdouk" target="_blank">
+            <img src={linkedin} alt="" className="w-10 h-10" />
+          </a>
+          <a href="mailto:emma@workdo.co.uk">
+            <img src={inbox} alt="" className="w-10 h-10" />
+          </a>
         </div>
       </div>
     </footer>
