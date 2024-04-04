@@ -147,7 +147,7 @@ const SubmitEvent = () => {
                 />
               </div>
             </div>
-            <div className="col-span-12 mb-8   w-[98%] lg:w-full  flex flex-col justify-center">
+            <div className="col-span-12    w-[98%] lg:w-full  flex flex-col justify-center">
               <label className="neue700" htmlFor="">
                 WRITE IN DETAILS ABOUT THE EVENT
               </label>
@@ -167,8 +167,9 @@ const SubmitEvent = () => {
                 className="text-red-700 futura500  "
               />
             </div>
-            <div className="col-span-12 flex md:justify-end mt-0 lg:mt-8">
-              <div className="w-full md:w-[45%] mb-14">
+
+            <div className="col-span-12 my-8 flex md:justify-end ">
+              <div className="w-full md:w-[45%]">
                 <Button
                   text="Submit"
                   bgColor="bg-primary-200"

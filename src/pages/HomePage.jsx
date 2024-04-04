@@ -335,7 +335,7 @@ const HomePage = () => {
       </section>
 
       <section className="flex paddingXS lg:paddingX flex-col lg:flex-row justify-between items-center  w-full my-16">
-        <div className="my-10 w-full lg:w-1/3  text-left  text-primary-200">
+        <div className="my-2 lg:my-8 w-full lg:w-1/3  text-left  text-primary-200">
           <h2 className="h3 md:h2 text-primary-200  ">
             Sign up to our
             <br /> <span className="neue800">newsletter</span> <br />

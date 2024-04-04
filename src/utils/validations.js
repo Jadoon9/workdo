@@ -37,7 +37,7 @@ export const validationSchema = Yup.object().shape({
 
   eventTheme: Yup.string()
     .trim()
-    .required("Event theme is required")
+    .required("Occasion is required")
     .test("is-not-whitespace", "Theme cannot be empty", (value) => {
       // Check if the input consists only of whitespace characters
       return value.trim().length > 0;
