@@ -38,14 +38,14 @@ const Footer = () => {
   return (
     <footer className="bg-primary-200 w-full paddingXS lg:paddingX py-12 lg:py-16">
       <div className="grid grid-cols-1 md:grid-cols-12 gap-y-8 md:gap-y-12">
-        <div className="col-span-12 md:col-span-5 flex flex-col w-full md:w-3/4 space-y-6">
+        <div className="col-span-12 md:col-span-4 flex flex-col w-full md:w-3/4 space-y-6">
           <img src={whiteLogo} alt="" className="w-60" />
           <p className="text-secondary-200 body-regular lg:body-regular1 font-light text-start md:text-left">
             Lorem ipsum dolor sit amet consectetur. Sit vel consequat ut
             scelerisque quis bibendum. Tincidunt sed lacus odio consectetur.
           </p>
         </div>
-        <div className="col-span-12 md:col-span-2 flex flex-col md:items-start space-y-4 md:space-y-6">
+        <div className="col-span-12 md:col-span-3 flex flex-col md:items-start space-y-4 md:space-y-6">
           <h2 className="text-white neue700 h7">LINKS</h2>
           {links.map((item, index) => (
             <Link
