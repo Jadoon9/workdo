@@ -431,11 +431,17 @@ const HomePage = () => {
                 : null}
               {/* Default next and previous buttons */}
               <div className="flex-between gap-x-3 absolute z-50 top-1/2 left-0 w-full transform -translate-y-1/2">
-                <div className="swiper-button-prev rounded-full cursor-pointer shadow">
-                  <GrPrevious className="w-10 h-10 g:w-12 lg:h-12 p-4 rounded-full bg-white" />
+                <div
+                  className="swiper-button-prev rounded-full cursor-pointer shadow"
+                  onClick={goPrev}
+                >
+                  <GrPrevious className="w-12 h-12 p-4 rounded-full bg-white" />
                 </div>
-                <div className="swiper-button-next rounded-full shadow cursor-pointer">
-                  <GrNext className="w-10 h-10 g:w-12 lg:h-12 p-4 rounded-full bg-white" />
+                <div
+                  className="swiper-button-next rounded-full shadow cursor-pointer"
+                  onClick={goNext}
+                >
+                  <GrNext className="w-12 h-12 p-4 rounded-full bg-white" />
                 </div>
               </div>
             </Swiper>
