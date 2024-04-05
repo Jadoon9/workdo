@@ -294,7 +294,7 @@ const HomePage = () => {
         <div className="col-span-1 lg:col-span-7 bg-primary-100 paddingXS lg:paddingX py-12 lg:h-[600px]">
           {[...Array(3)].map((item, index) => (
             <div
-              className="flex my-8 lg:my-0 gap-8 lg:space-y-10 lg:items-center"
+              className="flex lg:my-0 gap-8 space-y-4 xl:space-y-12  lg:items-center"
               key={index}
             >
               <img
@@ -310,19 +310,13 @@ const HomePage = () => {
               </p>
             </div>
           ))}
-          <div className="ml-0 lg:ml-16 mt-16">
+          <div className="ml-0 lg:ml-16 mt-12 ">
             <a
               className="px-6 py-2 border-2 text-white border-white text-center !w-full uppercase hover:opacity-85 block font-bold body-medium lg:body-18 hover:scale-105 rounded-[45px]"
               href="mailto:emma@workdo.co.uk"
             >
               List your business
             </a>
-            {/* <Button
-              text="List your business"
-              width="w-full"
-              textColor="text-white"
-              borderWhite
-            /> */}
           </div>
         </div>
         <div className="col-span-1 lg:col-span-5 lg:pr-10 lg:h-[600px]">
