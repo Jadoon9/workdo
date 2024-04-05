@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import whiteLogo from "../../assets/landingpage/logo-white.svg";
 import Input from "./Input";
 import insta from "../../assets/landingpage/insta.svg";
@@ -21,6 +21,19 @@ const links = [
 ];
 
 const Footer = () => {
+  useEffect(() => {
+    // Initialize tooltips when component mounts
+    const tooltips = document.querySelectorAll(".nav-tooltip");
+    tooltips.forEach((tooltip) => {
+      tooltip.addEventListener("mouseover", () => {
+        tooltip.querySelector(".tooltip-text").style.opacity = "1";
+      });
+      tooltip.addEventListener("mouseout", () => {
+        tooltip.querySelector(".tooltip-text").style.opacity = "0";
+      });
+    });
+  }, []);
+
   const [newsLetter, setNewsLetter] = useState("");
   const { mutate: mutateNewsLetter, isPending: pendingNewsLetter } =
     useMutation({
@@ -45,15 +58,21 @@ const Footer = () => {
             scelerisque quis bibendum. Tincidunt sed lacus odio consectetur.
           </p>
         </div>
-        <div className="col-span-12 md:col-span-3 flex flex-col md:items-start space-y-4 md:space-y-6">
+        <div className="col-span-12 relative md:col-span-3 flex flex-col md:items-start space-y-4 md:space-y-6">
           <h2 className="text-white neue700 h7">LINKS</h2>
+
           {links.map((item, index) => (
             <Link
-              to={item === "FAQs" ? "/faq" : ""}
+              to={item === "Home" ? "/" : ""}
               key={index}
-              className="body-regular lg:body-regular1 text-secondary-200"
+              className="body-regular lg:body-regular1 text-secondary-200 relative nav-tooltip"
             >
               {item}
+              {item !== "Home" && (
+                <span className="absolute left-10 -bottom-5 transform -translate-x-1/2 w-max py-1 px-2 bg-white text-primary-200 text-xs rounded-md whitespace-nowrap opacity-0 tooltip-text transition-opacity duration-300">
+                  Coming Soon
+                </span>
+              )}
             </Link>
           ))}
         </div>
@@ -75,7 +94,6 @@ const Footer = () => {
               value={newsLetter}
               pending={pendingNewsLetter}
               buttonOnClick={() => mutateNewsLetter({ email: newsLetter })}
-              renderButton
             />
           </div>
         </div>

@@ -5,9 +5,7 @@ import { validationSchema } from "../utils/validations";
 import { useMutation } from "@tanstack/react-query";
 import { toast } from "react-toastify";
 import { addEvent } from "../services/actions/events";
-import DatePicker from "../components/common/DatePicker";
 import { useRef } from "react";
-import { FaEuroSign } from "react-icons/fa";
 
 const SubmitEvent = () => {
   const ref = useRef();
