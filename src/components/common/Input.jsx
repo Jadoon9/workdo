@@ -28,7 +28,7 @@ const Input = ({
       {label && (
         <label
           htmlFor=""
-          className="block body-medium uppercase neue700 text-primary-200"
+          className="block body-medium mb-1 uppercase neue700 text-primary-200"
         >
           {label}
         </label>
